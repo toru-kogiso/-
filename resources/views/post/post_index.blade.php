@@ -40,15 +40,15 @@
                         <tbody>
                             @foreach($posts as $post)
                                <tr>
-                                    <td>{{ $user->name }}</td>
+                                    <td>{{ Auth::user()->name }}</td>
                                     <td>{{ \Str::limit($post->title, 100) }}</td>
                                     <td>{{ \Str::limit($post->body, 250) }}</td>
-                                    @auth
+                                    
                                       @if( ( $post->user_id ) === ( Auth::user()->id ) )
                                          <td><a href="{{ action('PostController@edit', ['id' => $post->id]) }}">編集</a></td>
                                          <td><a href="{{ action('PostController@delete', ['id' => $post->id]) }}">削除</a></td>
                                       @endif
-                                    @endauth
+                                    
                                 </tr>
                             @endforeach
                         </tbody>

@@ -27,11 +27,10 @@ class PostController extends Controller
       $this->validate($request, Post::$rules);
       
       $posts = new Post;
+      
+      //ユーザー情報取得
+      $user = \Auth::user();
      
-      //$user = User::all()->name;
-      $user = Auth::name();
-      
-      
       $form = $request->all();
       
         if (isset($form['image'])) {
@@ -46,17 +45,19 @@ class PostController extends Controller
       // フォームから送信されてきたimageを削除する
       unset($form['image']);
       
+      $posts->user_id = $user->id;
      
       // データベースに保存する
       $posts->fill($form);
       $posts->save();
       
-     return redirect('post', ['user' => $user]);
+     return redirect('post');
     }
 
 
     public function post_index(Request $request)
     {
+        
         $cond_title = $request->cond_title;
         if ($cond_title != '') {
             $posts= Post::where('title', $cond_title)->get();
@@ -64,6 +65,9 @@ class PostController extends Controller
             $posts = Post::all();
         }
         
+        $posts = Post::all()->sortByDesc('updated_at');
+        //$posts = Post::find($request->id);
+        //$user = Auth::user();
         
         
         return view('post.post_index', ['posts' => $posts, 'cond_title' => $cond_title]);

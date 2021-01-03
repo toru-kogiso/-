@@ -7,7 +7,7 @@
                  <div class="collapse navbar-collapse">
                       <ul class="navbar-nav">
                          <li class="nav-item">
-                             <a class="nav-link" href="{{ route('home') }}">HOME</a>
+                             <a class="nav-link" href="{{ route('top') }}">HOME</a>
                          </li>
                          <li class="nav-item">
                            <a class="nav-link" href="{{ route('post') }}">投稿一覧</a>

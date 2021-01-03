@@ -37,12 +37,14 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/', 'Topcontroller@index')->name('top');
 
 //投稿
-Route::get('post', 'PostController@post_index')->name('post');
-Route::get('post/create', 'PostController@add');
-Route::post('post/create', 'PostController@create');
-Route::get('post/edit', 'PostController@edit');
-Route::post('post/edit', 'PostController@update');
-Route::get('post/delete', 'PostController@delete');
+Route::group(['middleware' => 'auth'], function() {
+   Route::get('post', 'PostController@post_index')->name('post');
+   Route::get('post/create', 'PostController@add');
+   Route::post('post/create', 'PostController@create');
+   Route::get('post/edit', 'PostController@edit');
+   Route::post('post/edit', 'PostController@update');
+   Route::get('post/delete', 'PostController@delete');
+});
 
 //プロフィール
 Route::get('profile/create', 'ProfileController@add')->name('profile');
