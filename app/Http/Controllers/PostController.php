@@ -1,25 +1,37 @@
 <?php
 
-namespace App\Http\Controllers\Admin;
+namespace App\Http\Controllers;
 
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
-use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\HTML;
 use App\Post;
+use App\User;
 
 class PostController extends Controller
 {
-    //
+    public function __construct()
+    {
+        $this->middleware('auth')->except(['post_index']);
+    }
+    
+    
     public function add()
     {
-        return view('admin.post.create');
+        return view('post.create');
     }
+    
     
     public function create(Request $request)
     {
-        
       $this->validate($request, Post::$rules);
       
       $posts = new Post;
+     
+      //$user = User::all()->name;
+      $user = Auth::name();
+      
+      
       $form = $request->all();
       
         if (isset($form['image'])) {
@@ -33,15 +45,17 @@ class PostController extends Controller
       unset($form['_token']);
       // フォームから送信されてきたimageを削除する
       unset($form['image']);
+      
      
       // データベースに保存する
       $posts->fill($form);
       $posts->save();
-         
-     return redirect('/');
+      
+     return redirect('post', ['user' => $user]);
     }
-    
-    public function index(Request $request)
+
+
+    public function post_index(Request $request)
     {
         $cond_title = $request->cond_title;
         if ($cond_title != '') {
@@ -49,8 +63,12 @@ class PostController extends Controller
         } else {
             $posts = Post::all();
         }
-        return view('admin.post.index', ['posts' => $posts, 'cond_title' => $cond_title]);
+        
+        
+        
+        return view('post.post_index', ['posts' => $posts, 'cond_title' => $cond_title]);
     }
+    
     
     public function edit(Request $request)
     {
@@ -58,13 +76,16 @@ class PostController extends Controller
         if (empty($posts)) {
             about(404);
         }
-        return view('admin.post.edit',['posts_form' => $posts]);
+        return view('post.edit',['posts_form' => $posts]);
     }
+    
     
     public function update(Request $request)
     {
         $this->validate($request, Post::$rules);
+        
         $posts = Post::find($request->id);
+        
         $posts_form = $request->all();
         if ($request->remove == 'true') {
           $posts_form['image_path'] = null;
@@ -79,8 +100,9 @@ class PostController extends Controller
         
         $posts->fill($posts_form)->save();
         
-        return redirect('admin/post');
+        return redirect('post');
     }
+    
     
     public function delete(Request $request)
     {
@@ -88,6 +110,6 @@ class PostController extends Controller
         
         $posts->delete();
         
-        return redirect('admin/post');
+        return redirect('post');
     }
 }

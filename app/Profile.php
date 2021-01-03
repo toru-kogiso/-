@@ -15,4 +15,10 @@ class Profile extends Model
         'artist' => 'required',
         'introduction' => 'required',
         );
+    
+    public function posts()
+    {
+       return $this->hasMany('App\Post');
+    }
+    
 }

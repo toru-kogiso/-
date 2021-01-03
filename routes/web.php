@@ -12,7 +12,7 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('home');
 });
 
 Route::group(['prefix' => 'admin', 'middleware' =>'auth'], function() {
@@ -29,10 +29,26 @@ Route::group(['prefix' => 'admin', 'middleware' =>'auth'], function() {
     Route::get('profile/edit', 'Admin\ProfileController@edit');
     Route::post('profile/create', 'Admin\ProfileController@create');
     Route::post('profile/edit', 'Admin\ProfileController@update');
-    Route::get('post/delete', 'Admin\ProfileController@delete');
-    Route::get('post', 'Admin\ProfileController@index');
 });
 
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/', 'Topcontroller@index')->name('top');
+
+//投稿
+Route::get('post', 'PostController@post_index')->name('post');
+Route::get('post/create', 'PostController@add');
+Route::post('post/create', 'PostController@create');
+Route::get('post/edit', 'PostController@edit');
+Route::post('post/edit', 'PostController@update');
+Route::get('post/delete', 'PostController@delete');
+
+//プロフィール
+Route::get('profile/create', 'ProfileController@add')->name('profile');
+Route::get('profile/edit', 'ProfileController@edit');
+Route::post('profile/create', 'ProfileController@create');
+Route::post('profile/edit', 'ProfileController@update');
+
+//いいね
+
