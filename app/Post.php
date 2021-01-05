@@ -21,4 +21,9 @@ class Post extends Model
     {
         return $this->belongsTo('App\User');
     }
+    
+    public function like_users() //いいねしているユーザーを抜き出す
+    {
+        return $this->belongsToMany(User::class,'likes','post_id','user_id')->withTimestamp();
+    }
 }
