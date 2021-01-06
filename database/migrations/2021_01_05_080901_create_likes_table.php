@@ -28,8 +28,8 @@ class CreateLikesTable extends Migration
                   ->references('id')
                   ->on('posts')
                   ->onDelete('cascade'); //postが削除されたとき、それに関連するlikeも一気に削除
-            
-            $table->unique(['user_id','post_id']);      
+                  
+            $table->unique(['user_id','post_id']);     
         });
     }
 

@@ -18,6 +18,7 @@ class Topcontroller extends Controller
             $headline = null;
         }    
         
-        return view('top.index', ['headline' => $headline, 'posts' => $posts]);
+        
+        return view('top.index', ['headline' => $headline, 'posts' => $posts,]);
     }
 }

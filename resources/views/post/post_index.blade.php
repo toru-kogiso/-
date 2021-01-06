@@ -44,11 +44,29 @@
                                     <td>{{ \Str::limit($post->title, 100) }}</td>
                                     <td>{{ \Str::limit($post->body, 250) }}</td>
                                     
-                                      @if( ( $post->user_id ) === ( Auth::user()->id ) )
+                                    {{-- 自分の投稿だったら編集・削除できる --}}
+                                      @if( ( $post->user_id ) === ( Auth::user()->id ) ) 
                                          <td><a href="{{ action('PostController@edit', ['id' => $post->id]) }}">編集</a></td>
                                          <td><a href="{{ action('PostController@delete', ['id' => $post->id]) }}">削除</a></td>
                                       @endif
-                                    
+                                      
+                                      @if (Auth::check())
+                                         @if (isset($like))
+                                         　　<!-- いいね取り消しフォーム -->
+                                             {{ Form::model($post, array('action' => array('LikesController@destroy', $post->id, $like->id))) }}
+                                                 <button type="submit">
+                                                     ♡ いいね！ {{ $post->likes_count }}
+                                                 </button>
+                                             {!! Form::close() !!}
+                                         @else
+                                         　　<!-- いいねフォーム -->
+                                             {{ Form::model($post, array('action' => array('LikesController@store', $post->id))) }}
+                                                 <button type="submit">
+                                                     ＋ いいね！ {{ $post->likes_count }}
+                                                 </button>
+                                             {!! Form::close() !!}
+                                         @endif
+                                      @endif
                                 </tr>
                             @endforeach
                         </tbody>

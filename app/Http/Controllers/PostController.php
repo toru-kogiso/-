@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\HTML;
+use App\Http\Requests;
 use App\Post;
 use App\User;
 
@@ -64,13 +65,10 @@ class PostController extends Controller
         } else {
             $posts = Post::all();
         }
-        
+        //更新順に並び替え
         $posts = Post::all()->sortByDesc('updated_at');
-        //$posts = Post::find($request->id);
-        //$user = Auth::user();
         
-        
-        return view('post.post_index', ['posts' => $posts, 'cond_title' => $cond_title]);
+        return view('post.post_index', ['posts' => $posts, 'cond_title' => $cond_title,]);
     }
     
     
@@ -107,7 +105,6 @@ class PostController extends Controller
         return redirect('post');
     }
     
-    
     public function delete(Request $request)
     {
         $posts = Post::find($request->id);
@@ -115,5 +112,14 @@ class PostController extends Controller
         $posts->delete();
         
         return redirect('post');
+    }
+    
+    public function show($id)
+    {   
+       $post = Post::findOrFail($id); // findOrFail 見つからなかった時の例外処理
+        
+        $like = $item->likes()->where('user_id', Auth::user()->id)->first();
+
+        return view('post.post_index')->with(['post' => $post, 'like' => $like]);
     }
 }

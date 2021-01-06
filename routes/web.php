@@ -53,9 +53,5 @@ Route::post('profile/create', 'ProfileController@create');
 Route::post('profile/edit', 'ProfileController@update');
 
 //いいね
-Route::group(['middleware' => 'auth'], function() {
-    Route::group(['prefix' => 'post/{id}'], function(){
-        Route::post('like', 'LikeController@store')->name('likes,like');
-        Route::delete('unlike', 'LikeController@destroy')->name('likes.unlike');
-    });
-});    
+Route::post('/posts/{post}/likes', 'LikesController@store');
+Route::post('/posts/{post}/likes/{like}', 'LikesController@destroy');

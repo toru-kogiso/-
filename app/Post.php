@@ -3,6 +3,8 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Auth;
+use App\Like;
 
 class Post extends Model
 {
@@ -17,13 +19,18 @@ class Post extends Model
         'body' => 'required',
         );
     
-    public function user()
+    public function user() //主テーブル<-従テーブル
     {
         return $this->belongsTo('App\User');
     }
     
-    public function like_users() //いいねしているユーザーを抜き出す
+    public function likes()
     {
-        return $this->belongsToMany(User::class,'likes','post_id','user_id')->withTimestamp();
+      return $this->hasMany('App\Like');
+    }
+
+    public function like_by()
+    {
+      return Like::where('user_id', \Auth::user()->id)->first();
     }
 }
