@@ -58,14 +58,14 @@ class PostController extends Controller
 
     public function post_index(Request $request)
     {
-        
         $cond_title = $request->cond_title;
         if ($cond_title != '') {
             $posts= Post::where('title', $cond_title)->get();
         } else {
             $posts = Post::all();
         }
-        //更新順に並び替え
+    
+         //更新順に並び替え
         $posts = Post::all()->sortByDesc('updated_at');
         
         return view('post.post_index', ['posts' => $posts, 'cond_title' => $cond_title,]);
@@ -116,10 +116,10 @@ class PostController extends Controller
     
     public function show($id)
     {   
-       $post = Post::findOrFail($id); // findOrFail 見つからなかった時の例外処理
+        $post = Post::findOrFail($id); // findOrFail 見つからなかった時の例外処理
         
-        $like = $item->likes()->where('user_id', Auth::user()->id)->first();
+        $like = $post->likes()->where('user_id', Auth::user()->id)->first();
 
-        return view('post.post_index')->with(['post' => $post, 'like' => $like]);
+        return view('post.post_index')->with(array('post' => $post, 'like' => $like));
     }
 }

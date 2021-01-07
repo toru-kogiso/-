@@ -21,7 +21,7 @@ class Post extends Model
     
     public function user() //主テーブル<-従テーブル
     {
-        return $this->belongsTo('App\User');
+        return $this->belongsTo(User::class);
     }
     
     public function likes()
@@ -31,6 +31,6 @@ class Post extends Model
 
     public function like_by()
     {
-      return Like::where('user_id', \Auth::user()->id)->first();
+      return Like::where('user_id', Auth::user()->id)->first();
     }
 }

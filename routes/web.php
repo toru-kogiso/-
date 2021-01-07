@@ -44,6 +44,7 @@ Route::group(['middleware' => 'auth'], function() {
    Route::get('post/edit', 'PostController@edit');
    Route::post('post/edit', 'PostController@update');
    Route::get('post/delete', 'PostController@delete');
+   Route::get('post/show', 'PostController@show');
 });
 
 //プロフィール

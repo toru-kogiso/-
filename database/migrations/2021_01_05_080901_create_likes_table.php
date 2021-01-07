@@ -15,8 +15,8 @@ class CreateLikesTable extends Migration
     {
         Schema::create('likes', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->bigInteger('user_id')->unsigned();
-            $table->bigInteger('post_id')->unsigned();
+            $table->biginteger('user_id')->unsigned();
+            $table->biginteger('post_id')->unsigned();
             $table->timestamps();
             
             $table->foreign('user_id')
@@ -29,7 +29,7 @@ class CreateLikesTable extends Migration
                   ->on('posts')
                   ->onDelete('cascade'); //postが削除されたとき、それに関連するlikeも一気に削除
                   
-            $table->unique(['user_id','post_id']);     
+                 
         });
     }
 

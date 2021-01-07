@@ -32,7 +32,7 @@
                     <table class="table table-hover">
                         <thead>
                             <tr>
-                                <th width="10%">ユーザー名</th>
+                                <th width="10%">ユーザー</th>
                                 <th width="20%">タイトル</th>
                                 <th width="50%">本文</th>
                             </tr>
@@ -40,33 +40,40 @@
                         <tbody>
                             @foreach($posts as $post)
                                <tr>
-                                    <td>{{ Auth::user()->name }}</td>
+                                    <td>
+                                        @guest
+                                          {{ Auth::user()->id }}
+                                        @else
+                                          {{ Auth::user()->name }}
+                                        @endguest  
+                                    </td>
                                     <td>{{ \Str::limit($post->title, 100) }}</td>
                                     <td>{{ \Str::limit($post->body, 250) }}</td>
-                                    
-                                    {{-- 自分の投稿だったら編集・削除できる --}}
-                                      @if( ( $post->user_id ) === ( Auth::user()->id ) ) 
-                                         <td><a href="{{ action('PostController@edit', ['id' => $post->id]) }}">編集</a></td>
-                                         <td><a href="{{ action('PostController@delete', ['id' => $post->id]) }}">削除</a></td>
-                                      @endif
-                                      
-                                      @if (Auth::check())
+                                    <td>
+                                    @if (Auth::check())
                                          @if (isset($like))
                                          　　<!-- いいね取り消しフォーム -->
                                              {{ Form::model($post, array('action' => array('LikesController@destroy', $post->id, $like->id))) }}
                                                  <button type="submit">
-                                                     ♡ いいね！ {{ $post->likes_count }}
+                                                      いいね！ {{ $post->likes_count }}
                                                  </button>
                                              {!! Form::close() !!}
                                          @else
                                          　　<!-- いいねフォーム -->
                                              {{ Form::model($post, array('action' => array('LikesController@store', $post->id))) }}
                                                  <button type="submit">
-                                                     ＋ いいね！ {{ $post->likes_count }}
+                                                     いいね！ {{ $post->likes_count }}
                                                  </button>
                                              {!! Form::close() !!}
                                          @endif
                                       @endif
+                                    </td>
+                                    <td>{{-- 自分の投稿だったら編集・削除できる --}}
+                                      @if( ( $post->user_id ) === ( Auth::user()->id ) ) 
+                                         <div><a href="{{ action('PostController@edit', ['id' => $post->id]) }}">編集</a></div>
+                                         <div><a href="{{ action('PostController@delete', ['id' => $post->id]) }}">削除</a></div>
+                                      @endif
+                                    </td>  
                                 </tr>
                             @endforeach
                         </tbody>
