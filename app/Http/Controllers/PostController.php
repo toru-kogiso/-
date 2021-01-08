@@ -66,7 +66,7 @@ class PostController extends Controller
         }
     
          //更新順に並び替え
-        $posts = Post::all()->sortByDesc('updated_at');
+        $posts = Post::all()->sortByDesc('created_at');
         
         return view('post.post_index', ['posts' => $posts, 'cond_title' => $cond_title,]);
     }
@@ -114,12 +114,13 @@ class PostController extends Controller
         return redirect('post');
     }
     
-    public function show($id)
+    public function show(Request $request)
     {   
-        $post = Post::findOrFail($id); // findOrFail 見つからなかった時の例外処理
+        //$post = Post::find($id); 
+        $posts = Post::find($request->id);
         
-        $like = $post->likes()->where('user_id', Auth::user()->id)->first();
+        $like = $posts->likes()->where('user_id', Auth::user()->id)->first();
 
-        return view('post.post_index')->with(array('post' => $post, 'like' => $like));
+        return view('post.show')->with(array('post' => $post, 'like' => $like));
     }
 }

@@ -31,6 +31,6 @@ class Post extends Model
 
     public function like_by()
     {
-      return Like::where('user_id', Auth::user()->id)->first();
+      return Like::where('user_id', \Auth::user()->id)->first();
     }
 }

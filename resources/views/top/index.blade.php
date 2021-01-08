@@ -32,6 +32,5 @@
             </div>
         @endif
         <hr color="#c0c0c0">
-    </div>
-    </div>
+    
 @endsection

@@ -37,7 +37,7 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/', 'Topcontroller@index')->name('top');
 
 //投稿
-Route::group(['middleware' => 'auth'], function() {
+
    Route::get('post', 'PostController@post_index')->name('post');
    Route::get('post/create', 'PostController@add');
    Route::post('post/create', 'PostController@create');
@@ -45,13 +45,13 @@ Route::group(['middleware' => 'auth'], function() {
    Route::post('post/edit', 'PostController@update');
    Route::get('post/delete', 'PostController@delete');
    Route::get('post/show', 'PostController@show');
-});
 
-//プロフィール
-Route::get('profile/create', 'ProfileController@add')->name('profile');
-Route::get('profile/edit', 'ProfileController@edit');
-Route::post('profile/create', 'ProfileController@create');
-Route::post('profile/edit', 'ProfileController@update');
+//マイページ
+Route::get('mypage', 'MypageController@add')->name('mypage');
+
+//問い合わせフォーム
+Route::get('form/create', 'FormController@add')->name('form');
+Route::post('form/create', 'FormController@create');
 
 //いいね
 Route::post('/posts/{post}/likes', 'LikesController@store');

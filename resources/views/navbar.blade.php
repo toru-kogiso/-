@@ -13,13 +13,13 @@
                            <a class="nav-link" href="{{ route('post') }}">投稿一覧</a>
                          </li>
                          <li class="nav-item">
-                            <a class="nav-link" href="">マイページ</a>
+                            <a class="nav-link" href="{{ route('mypage') }}">マイページ</a>
                          </li>
                          <li class="nav-item">
                             <a class="nav-link" href="/register">会員登録</a>
                          </li>
                          <li class="nav-item">
-                            <a class="nav-link" href="">お問合せ</a>
+                            <a class="nav-link" href="{{ route('form') }}">お問合せ</a>
                          </li>
                       </ul>
                  </div>
