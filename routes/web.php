@@ -14,7 +14,7 @@
 Route::get('/', function () {
     return view('home');
 });
-
+/*
 Route::group(['prefix' => 'admin', 'middleware' =>'auth'], function() {
     Route::get('post/create', 'Admin\PostController@add');
     Route::post('post/create', 'Admin\PostController@create');
@@ -30,7 +30,7 @@ Route::group(['prefix' => 'admin', 'middleware' =>'auth'], function() {
     Route::post('profile/create', 'Admin\ProfileController@create');
     Route::post('profile/edit', 'Admin\ProfileController@update');
 });
-
+*/
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
@@ -44,7 +44,7 @@ Route::get('/', 'Topcontroller@index')->name('top');
    Route::get('post/edit', 'PostController@edit');
    Route::post('post/edit', 'PostController@update');
    Route::get('post/delete', 'PostController@delete');
-   Route::get('post/show', 'PostController@show');
+   Route::resource('post', 'PostController', ['only' => ['post_index' ,'show']]);
 
 //マイページ
 Route::get('mypage', 'MypageController@add')->name('mypage');

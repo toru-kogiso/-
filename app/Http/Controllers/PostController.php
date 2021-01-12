@@ -91,13 +91,17 @@ class PostController extends Controller
         $posts_form = $request->all();
         if ($request->remove == 'true') {
           $posts_form['image_path'] = null;
+          
       } elseif ($request->file('image')) {
           $path = $request->file('image')->store('public/image');
           $posts_form['image_path'] = basename($path);
+          
       } else {
           $posts_form['image_path'] = $posts->image_path;
       }
         
+        unset($posts_form['image']);
+        unset($posts_form['remove']);
         unset($posts_form['_token']);
         
         $posts->fill($posts_form)->save();
@@ -114,13 +118,12 @@ class PostController extends Controller
         return redirect('post');
     }
     
-    public function show(Request $request)
+    public function show(Request $request, $id)
     {   
-        //$post = Post::find($id); 
-        $posts = Post::find($request->id);
+        $post = Post::findOrFail($id);
         
-        $like = $posts->likes()->where('user_id', Auth::user()->id)->first();
+        //$like = $post->likes()->where('user_id', Auth::user()->id)->first();
 
-        return view('post.show')->with(array('post' => $post, 'like' => $like));
+        return view('post.show', ['post' => $post]);
     }
 }

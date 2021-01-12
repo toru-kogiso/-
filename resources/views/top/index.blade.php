@@ -25,7 +25,7 @@
                             </div>
                         </div>
                         <div class="col-md-6">
-                            <p class="body mx-auto">{{ str_limit($headline->body, 300) }}</p>
+                            <p class="body mx-auto">{!! nl2br(e($headline->body)) !!}</p>
                         </div>
                     </div>
                 </div>

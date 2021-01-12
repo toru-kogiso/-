@@ -1,4 +1,5 @@
 @extends('layouts.post')
+
 @section('title', '投稿の編集')
 
 @section('content')

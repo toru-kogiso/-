@@ -40,39 +40,17 @@
                         <tbody>
                             @foreach($posts as $post)
                                <tr>
-                                    <td>
-                                        @guest
-                                          {{ Auth::user()->id }}
-                                        @else
-                                          {{ Auth::user()->name }}
-                                        @endguest  
-                                    </td>
+                                    <td>{{ $post->id }}</td>
                                     <td>{{ \Str::limit($post->title, 100) }}</td>
                                     <td>{{ \Str::limit($post->body, 250) }}</td>
-                                    <td>
-                                    @if (Auth::check())
-                                         @if (isset($like))
-                                         　　<!-- いいね取り消しフォーム -->
-                                             {{ Form::model($post, array('action' => array('LikesController@destroy', $post->id, $like->id))) }}
-                                                 <button type="submit">
-                                                      いいね！ {{ $post->likes_count }}
-                                                 </button>
-                                             {!! Form::close() !!}
-                                         @else
-                                         　　<!-- いいねフォーム -->
-                                             {{ Form::model($post, array('action' => array('LikesController@store', $post->id))) }}
-                                                 <button type="submit">
-                                                     いいね！ {{ $post->likes_count }}
-                                                 </button>
-                                             {!! Form::close() !!}
-                                         @endif
-                                      @endif
-                                    </td>
+                                    <td><a href="{{ action('PostController@show', $post->id) }}" class="btn btn-primary">詳細</a></td>
                                     <td>{{-- 自分の投稿だったら編集・削除できる --}}
+                                    @if (Auth::check())
                                       @if( ( $post->user_id ) === ( Auth::user()->id ) ) 
-                                         <div><a href="{{ action('PostController@edit', ['id' => $post->id]) }}">編集</a></div>
-                                         <div><a href="{{ action('PostController@delete', ['id' => $post->id]) }}">削除</a></div>
+                                         <div><a href="{{ action('PostController@edit', ['id' => $post->id]) }}" class="btn btn-warning">編集</a></div>
+                                         <div><a href="{{ action('PostController@delete', ['id' => $post->id]) }}" class="btn btn-dark">削除</a></div>
                                       @endif
+                                    @endif  
                                     </td>  
                                 </tr>
                             @endforeach
