@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\HTML;
 use App\Http\Requests;
 use App\Post;
 use App\User;
+use InterventionImage;
 
 class PostController extends Controller
 {
@@ -28,15 +29,22 @@ class PostController extends Controller
       $this->validate($request, Post::$rules);
       
       $posts = new Post;
-      
       //ユーザー情報取得
       $user = \Auth::user();
      
       $form = $request->all();
-      
+      // formに画像があれば、保存する
         if (isset($form['image'])) {
-        $path = $request->file('image')->store('public/image');
-        $posts->image_path = basename($path);
+            $image = $request->file('image');
+            $filename = $image->getClientOriginalname();
+            //画像をリサイズ
+            $image = InterventionImage::make($image)
+	        ->resize(300, 300, function ($constraint) {
+	            $constraint->aspectRatio();
+	        })
+	        ->save(public_path() . '/storage/image/' . $filename);
+	        $posts->image_path = basename($filename);
+
       } else {
          $posts->image_path = null;
       }
@@ -93,8 +101,15 @@ class PostController extends Controller
           $posts_form['image_path'] = null;
           
       } elseif ($request->file('image')) {
-          $path = $request->file('image')->store('public/image');
-          $posts_form['image_path'] = basename($path);
+            $image = $request->file('image');
+            $filename = $image->getClientOriginalname();
+            //画像をリサイズ
+            $image = InterventionImage::make($image)
+	        ->resize(300, 300, function ($constraint) {
+	            $constraint->aspectRatio();
+	        })
+	        ->save(public_path() . '/storage/image/' . $filename);
+	        $posts->image_path = basename($filename);
           
       } else {
           $posts_form['image_path'] = $posts->image_path;
@@ -103,9 +118,9 @@ class PostController extends Controller
         unset($posts_form['image']);
         unset($posts_form['remove']);
         unset($posts_form['_token']);
-        
+    
         $posts->fill($posts_form)->save();
-        
+    
         return redirect('post');
     }
     

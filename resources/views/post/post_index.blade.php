@@ -40,7 +40,13 @@
                         <tbody>
                             @foreach($posts as $post)
                                <tr>
-                                    <td>{{ $post->id }}</td>
+                                    <td>
+                                        @guest {{ $post->id }}
+                                        
+                                        @else {{ Auth::user()->name }}
+                                        
+                                        @endguest
+                                    </td>
                                     <td>{{ \Str::limit($post->title, 100) }}</td>
                                     <td>{{ \Str::limit($post->body, 250) }}</td>
                                     <td><a href="{{ action('PostController@show', $post->id) }}" class="btn btn-primary">詳細</a></td>

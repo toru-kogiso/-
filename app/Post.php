@@ -11,7 +11,8 @@ class Post extends Model
     protected $fillable = [
         'user_id',
         'title',
-        'body'
+        'body',
+        'image_path'
         ];
     
     public static $rules = array(

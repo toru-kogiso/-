@@ -27,6 +27,13 @@
             @endif       
         </div>
         
+        <!-- 一覧に戻るボタン -->
+        <div class="back">
+            <div class="d-flex justify-content-end">
+            <a href="{{ action('PostController@post_index') }}" class="btn btn-primary">一覧に戻る</a>
+            </div>
+        </div>
+        
     </div>
 </div>
 
