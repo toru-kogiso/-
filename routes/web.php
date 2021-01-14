@@ -54,5 +54,5 @@ Route::get('form/create', 'FormController@add')->name('form');
 Route::post('form/create', 'FormController@create');
 
 //いいね
-Route::post('/posts/{post}/likes', 'LikesController@store');
-Route::post('/posts/{post}/likes/{like}', 'LikesController@destroy');
+Route::post('/post/{post}/likes', 'LikesController@store');
+Route::post('/post/{post}/likes/{like}', 'LikesController@destroy');

@@ -72,11 +72,11 @@ class PostController extends Controller
         } else {
             $posts = Post::all();
         }
-    
          //更新順に並び替え
         $posts = Post::all()->sortByDesc('created_at');
         
-        return view('post.post_index', ['posts' => $posts, 'cond_title' => $cond_title,]);
+        
+        return view('post.post_index', ['posts' => $posts, 'cond_title' => $cond_title]);
     }
     
     
@@ -133,12 +133,13 @@ class PostController extends Controller
         return redirect('post');
     }
     
-    public function show(Request $request, $id)
+    public function show($id)
     {   
+        $authUser = Auth::user(); //認証ユーザー取得
         $post = Post::findOrFail($id);
         
-        //$like = $post->likes()->where('user_id', Auth::user()->id)->first();
+        $like = $post->likes()->where('user_id', Auth::user()->id)->first();
 
-        return view('post.show', ['post' => $post]);
+        return view('post.show', ['post' => $post, 'authUser' => $authUser, 'like' => $like]);
     }
 }

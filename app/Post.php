@@ -16,8 +16,8 @@ class Post extends Model
         ];
     
     public static $rules = array(
-        'title' => 'required',
-        'body' => 'required',
+        'title' => 'required|max:30',
+        'body' => 'required|max:300',
         );
     
     public function user() //主テーブル<-従テーブル

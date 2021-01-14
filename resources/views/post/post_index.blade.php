@@ -29,12 +29,14 @@
         <div class="row">
             <div class="list-news col-md-12 mx-auto">
                 <div class="row">
-                    <table class="table table-hover">
+                    <table class="table table-hover text-center">
                         <thead>
                             <tr>
-                                <th width="10%">ユーザー</th>
-                                <th width="20%">タイトル</th>
-                                <th width="50%">本文</th>
+                                <th>@guest ID @else ユーザー @endguest</th>
+                                <th width = 10%>タイトル</th>
+                                <th width = 30%>本文</th>
+                                <th></th>
+                                <th>いいね</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -50,15 +52,19 @@
                                     <td>{{ \Str::limit($post->title, 100) }}</td>
                                     <td>{{ \Str::limit($post->body, 250) }}</td>
                                     <td><a href="{{ action('PostController@show', $post->id) }}" class="btn btn-primary">詳細</a></td>
-                                    <td>{{-- 自分の投稿だったら編集・削除できる --}}
-                                    @if (Auth::check())
+                                    <td>{{ $post->likes_count }}</td>
+                                    <td>    
+                                      <div class="btn-toolbar">
+                                      <div class="btn-group">{{-- 自分の投稿だったら編集・削除できる --}}
+                                     @if (Auth::check())
                                       @if( ( $post->user_id ) === ( Auth::user()->id ) ) 
                                          <div><a href="{{ action('PostController@edit', ['id' => $post->id]) }}" class="btn btn-warning">編集</a></div>
                                          <div><a href="{{ action('PostController@delete', ['id' => $post->id]) }}" class="btn btn-dark">削除</a></div>
                                       @endif
-                                    @endif  
-                                    </td>  
-                                </tr>
+                                     @endif
+                                    </td> 
+                                    </div>
+                                    </div>
                             @endforeach
                         </tbody>
                     </table>

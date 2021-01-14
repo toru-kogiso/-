@@ -9,11 +9,9 @@
         <h2 class="title">
             {{ $post->title }}
         </h2>
-        
         <!-- 投稿情報 -->
-        <div class="summary">
-            <h5><span>{{ Auth::user()->name }}</span> / <time>{{ $post->created_at->format('Y年m月d日') }}</time></h5>
-        </div>
+        <span>{{ Auth::user()->name }}</span> / <time>{{ $post->created_at->format('Y年m月d日') }}</time>
+        <hr color="#c0c0c0">
         
         <!-- 本文 -->
         <div class="body">
@@ -34,6 +32,24 @@
             </div>
         </div>
         
+        <!-- いいねボタン -->
+        @if (Auth::check())
+            @if ($like)
+             <!-- いいね取り消しフォーム -->
+             {{ Form::model($post, array('action' => array('LikesController@destroy', $post->id, $like->id))) }}
+               <button type="submit">
+                   ♡  {{ $post->likes_count }}　いいねを取り消す
+               </button>
+             {!! Form::close() !!}
+            @else
+             <!-- いいねフォーム -->
+             {{ Form::model($post, array('action' => array('LikesController@store', $post->id))) }}
+               <button type="submit">
+                   ♡ {{ $post->likes_count }} いいね！
+               </button>
+             {!! Form::close() !!}
+            @endif
+        @endif
     </div>
 </div>
 
