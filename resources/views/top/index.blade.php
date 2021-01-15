@@ -5,6 +5,12 @@
 @section('content')
     <div class="container">
         <div class="row">
+            <div class="top_image col-md-12">
+                <img src="{{ asset('storage/image/top_image.jpg') }}"  class="img-fluid" alt="top_image">
+            </div>
+        </div>
+        
+        <div class="row">
             <h1>最新記事</h1>
         </div>
         <hr color="#c0c0c0">

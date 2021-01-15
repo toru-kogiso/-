@@ -10,7 +10,7 @@
             {{ $post->title }}
         </h2>
         <!-- 投稿情報 -->
-        <span>{{ Auth::user()->name }}</span> / <time>{{ $post->created_at->format('Y年m月d日') }}</time>
+        <span>{{ $post->user_name }}</span> / <time>{{ $post->created_at->format('Y年m月d日') }}</time>
         <hr color="#c0c0c0">
         
         <!-- 本文 -->

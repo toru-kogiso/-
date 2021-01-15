@@ -12,7 +12,8 @@ class Post extends Model
         'user_id',
         'title',
         'body',
-        'image_path'
+        'image_path',
+        'user_name'
         ];
     
     public static $rules = array(

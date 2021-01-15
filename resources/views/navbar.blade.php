@@ -7,17 +7,20 @@
                  <div class="collapse navbar-collapse">
                       <ul class="navbar-nav">
                          <li class="nav-item">
-                             <a class="nav-link" href="{{ route('top') }}">HOME</a>
+                             <a class="nav-link" href="{{ route('top') }}">トップページ</a>
                          </li>
                          <li class="nav-item">
                            <a class="nav-link" href="{{ route('post') }}">投稿一覧</a>
                          </li>
+                         @auth
                          <li class="nav-item">
                             <a class="nav-link" href="{{ route('mypage') }}">マイページ</a>
                          </li>
+                         @else
                          <li class="nav-item">
                             <a class="nav-link" href="/register">会員登録</a>
                          </li>
+                         @endauth
                          <li class="nav-item">
                             <a class="nav-link" href="{{ route('form') }}">お問合せ</a>
                          </li>

@@ -9,7 +9,7 @@
       </div>
        <div class="row">
             <div class="col-md-4">
-                <a href="{{ action('PostController@add') }}" role="button" class="btn btn-primary">新規作成</a>
+                <a href="{{ action('PostController@add') }}" role="button" class="btn btn-dark">新規作成</a>
             </div>
             <div class="col-md-8">
                 <form action="{{ action('PostController@post_index') }}" method="get">
@@ -20,7 +20,7 @@
                         </div>
                         <div class="col-md-2">
                             {{ csrf_field() }}
-                            <input type="submit" class="btn btn-primary" value="検索">
+                            <input type="submit" class="btn btn-dark" value="検索">
                         </div>
                     </div>
                 </form>
@@ -32,7 +32,7 @@
                     <table class="table table-hover text-center">
                         <thead>
                             <tr>
-                                <th>@guest ID @else ユーザー @endguest</th>
+                                <th>@guest ID @else ユーザー名 @endguest</th>
                                 <th width = 10%>タイトル</th>
                                 <th width = 30%>本文</th>
                                 <th></th>
@@ -45,13 +45,13 @@
                                     <td>
                                         @guest {{ $post->id }}
                                         
-                                        @else {{ Auth::user()->name }}
+                                        @else {{ $post->user_name }}
                                         
                                         @endguest
                                     </td>
                                     <td>{{ \Str::limit($post->title, 100) }}</td>
                                     <td>{{ \Str::limit($post->body, 250) }}</td>
-                                    <td><a href="{{ action('PostController@show', $post->id) }}" class="btn btn-primary">詳細</a></td>
+                                    <td><a href="{{ action('PostController@show', $post->id) }}" class="btn btn-dark">詳細</a></td>
                                     <td>{{ $post->likes_count }}</td>
                                     <td>    
                                       <div class="btn-toolbar">

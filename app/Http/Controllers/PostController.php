@@ -55,6 +55,7 @@ class PostController extends Controller
       unset($form['image']);
       
       $posts->user_id = $user->id;
+      $posts->user_name = $user->user_name;
      
       // データベースに保存する
       $posts->fill($form);
@@ -72,11 +73,12 @@ class PostController extends Controller
         } else {
             $posts = Post::all();
         }
+        
+        
          //更新順に並び替え
         $posts = Post::all()->sortByDesc('created_at');
         
-        
-        return view('post.post_index', ['posts' => $posts, 'cond_title' => $cond_title]);
+        return view('post.post_index', ['posts' => $posts, 'cond_title' => $cond_title,]);
     }
     
     
