@@ -29,7 +29,7 @@
             </main>
             <footer>
                 <div class="container">
-                   <p class="text-center text-muted ">MusicFans by Toru.</p>
+                   <p class="text-center text-muted">MusicFans by Toru.</p>
                 </div>
             </footer>
         </div>

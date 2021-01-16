@@ -9,8 +9,19 @@ body {
   color: #000;
 }
 
-.top_image {
-  margin-bottom: 20px;
+.jumbotron-extend {
+  background: url(/images/top_image.jpg?729a7ec2167dc217b20d01cc9dbccdd8) no-repeat center center;
+  background-size: cover;
+}
+
+.site-name {
+  font-size: 90pt;
+  color: #14e64b;
+  font-style: italic;
+  font-weight: bold;
+  opacity: 0.8;
+  text-shadow: 0 5px 5px black;
+  font-family: "Times New Roman", serif;
 }
 
 .py-4 {
@@ -25,7 +36,7 @@ footer {
   text-align: center;
 }
 
-.text-muted {
+footer .text-muted {
   margin: 20px;
 }
 

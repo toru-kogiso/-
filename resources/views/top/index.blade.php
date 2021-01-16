@@ -4,9 +4,10 @@
 
 @section('content')
     <div class="container">
-        <div class="row">
-            <div class="top_image col-md-12">
-                <img src="{{ asset('storage/image/top_image.jpg') }}"  class="img-fluid" alt="top_image">
+        <div class="jumbotron jumbotron-extend">
+            <div class="container-fluid text-center">
+                <h1 class="site-name">Music Fans</h1>
+                <p class="sub-title"></p>
             </div>
         </div>
         
