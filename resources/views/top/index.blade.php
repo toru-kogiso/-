@@ -12,7 +12,7 @@
         </div>
         
         <div class="row">
-            <h1>最新記事</h1>
+            <h1 class="page-title">最新記事</h1>
         </div>
         <hr color="#c0c0c0">
         @if (!is_null($headline))
@@ -39,5 +39,6 @@
             </div>
         @endif
         <hr color="#c0c0c0">
+        <a href="{{ route('kadai') }}" class="btn btn-dark">課題ページ</a>
     
 @endsection

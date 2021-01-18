@@ -56,3 +56,8 @@ Route::post('form/create', 'FormController@create');
 //いいね
 Route::post('/post/{post}/likes', 'LikesController@store');
 Route::post('/post/{post}/likes/{like}', 'LikesController@destroy');
+
+//練習用課題ページ
+Route::get('kadai', 'KadaiController@kadai_index')->name('kadai');
+Route::get('kadai/create', 'KadaiController@add');
+Route::post('kadai/create', 'KadaiController@create');

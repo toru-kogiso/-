@@ -6,7 +6,7 @@
    <div class="container"> 
        <div class="row">
            <div class="col-md-8 mx-auto">
-               <h1>お問合せフォーム</h1>
+               <h1 class="page-title">お問合せフォーム</h1>
                <form action="{{ action('FormController@create') }}" method="post" enctype="multipart/form-data">
                   @if (count($errors) > 0)
                        <ul>

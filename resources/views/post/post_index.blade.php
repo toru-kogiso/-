@@ -5,7 +5,7 @@
 @section('content')
     <div class="container">
       <div class="header">
-          <h1>投稿一覧</h1>
+          <h1 class="page-title">投稿一覧</h1>
       </div>
        <div class="row">
             <div class="col-md-4">
@@ -65,6 +65,7 @@
                                     </td> 
                                     </div>
                                     </div>
+                                </tr>    
                             @endforeach
                         </tbody>
                     </table>
