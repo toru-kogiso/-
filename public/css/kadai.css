@@ -78,3 +78,106 @@ a {
   text-decoration: none;
 }
 
+html {
+  font-size: 62.5%;
+}
+
+body {
+  background: #f8fafc;
+  border: none;
+}
+
+.body {
+  rgin: 0;
+  padding: 20px;
+  font-size: 1.4em;
+}
+
+.body:after {
+  content: "";
+  display: block;
+  clear: both;
+}
+
+.page-title {
+  font-size: 3em;
+  letter-spacing: 0.1em;
+  font-weight: bold;
+  text-align: center;
+}
+
+.sub-title {
+  font-size: 1.6em;
+  color: #bbb;
+  text-align: center;
+  letter-spacing: 0.1em;
+}
+
+.title-bar {
+  border: none;
+  text-align: center;
+  font-size: 2.5em;
+}
+
+.title-bar .one {
+  font-weight: bold;
+  color: #99ffcc;
+}
+
+.title-bar .two {
+  font-weight: bold;
+  color: #000;
+}
+
+.title-bar .three {
+  font-weight: bold;
+  color: #cccc99;
+}
+
+.title-bar .four {
+  font-weight: bold;
+  color: #0099cc;
+}
+
+.card {
+  background: #fff;
+  float: left;
+  margin: 15px;
+  width: 33.3333%;
+}
+
+img {
+  max-width: inherit;
+}
+
+.card-img {
+  max-width: 100%;
+  height: auto;
+}
+
+.card-content {
+  padding: 20px;
+}
+
+.card-title {
+  text-align: center;
+  font-size: 2em;
+  font-weight: bold;
+  letter-spacing: 0.1em;
+}
+
+.card-bar {
+  color: #00ccff;
+}
+
+.card-text {
+  font-size: 1.2em;
+  text-align: center;
+  color: #999;
+  letter-spacing: 0.1em;
+  overflow: hidden;
+  width: 100%;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+

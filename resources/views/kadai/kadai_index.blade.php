@@ -9,26 +9,27 @@
 
 <div class="container">
     <div class="header">
-        <h2>イベント情報</h2>
-        <p>EVENT</p>
-        <span>__</span>
+        <h2 class="page-title">イベント情報</h2>
+        <p class="sub-title">EVENT</p>
+        <p class="title-bar">
+        <span class="one">__</span><span class="two">__</span><span class="three">__</span><span class="four">__</span>
+        </p>
     </div>
     
     <div class="body">
          @foreach($events as $event)
-              <div class="box">
-                 <div class="text">
-                     <h3 class="title">{{ $event->title }}</h3>
-                     <p class="body"> {{ $event->body }}</p>
-                 </div>
-                 <div class="pic">
+              <div class="card">
+                  <div class="card-img">
                  <img src="{{ asset('storage/image/' . $event->image_path) }}">
+                 </div>
+                 <div class="card-content">
+                     <h3 class="card-title">{{ $event->title }}</h3>
+                     <span class="card-bar">__</span>
+                     <p class="card-text"> {{ $event->body }}</p>
                  </div>
               </div>
          @endforeach
     </div>
 </div>
-
-
 
 @endsection

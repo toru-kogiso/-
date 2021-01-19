@@ -32,3 +32,105 @@ a{
 }
 
 //main css
+html {
+  font-size: 62.5%; //1em=10px (16px*0.625=10px)
+}
+
+body {
+  background: #f8fafc;
+  border: none
+}
+
+.body {
+  rgin: 0;
+  padding: 20px;
+  font-size: 1.4em;
+  &:after {
+    content: "";
+    display: block;
+    clear: both;
+  }
+}  
+
+.page-title {
+  font-size: 3em;
+  letter-spacing: 0.1em;
+  font-weight: bold;
+  text-align: center;
+}
+
+.sub-title {
+  font-size: 1.6em;
+  color: #bbb;
+  text-align: center;
+  letter-spacing: 0.1em;
+}
+
+.title-bar {
+  border: none;
+  text-align: center;
+  font-size: 2.5em;
+.one {
+  font-weight: bold;
+  color: #99ffcc;
+}
+
+.two {
+  font-weight: bold;
+  color: #000;
+}
+
+.three {
+  font-weight: bold;
+  color: #cccc99;
+}
+
+.four {
+  font-weight: bold;
+  color: #0099cc;
+}
+}
+
+.card {
+  background: #fff;
+  float: left;
+  margin: 15px;
+  width: 33.3333%; //3分割
+}
+
+img {
+    max-width: inherit;
+}    
+
+.card-img  {
+  max-width: 100%;
+  height: auto;
+}
+
+.card-content {
+  padding: 20px;
+}
+
+.card-title {
+  text-align: center;
+  font-size: 2em;
+  font-weight: bold;
+  letter-spacing: 0.1em;
+}
+
+.card-bar {
+  color: #00ccff;
+}
+
+.card-text {
+  font-size: 1.2em;
+  text-align: center;
+  color: #999;
+  letter-spacing: 0.1em;
+  overflow: hidden;
+	width: 100%;
+	text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+
