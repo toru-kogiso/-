@@ -88,15 +88,8 @@ body {
 }
 
 .body {
-  rgin: 0;
-  padding: 20px;
-  font-size: 1.4em;
-}
-
-.body:after {
-  content: "";
-  display: block;
-  clear: both;
+  display: flex;
+  flex-wrap: wrap;
 }
 
 .page-title {
@@ -113,71 +106,56 @@ body {
   letter-spacing: 0.1em;
 }
 
-.title-bar {
-  border: none;
-  text-align: center;
-  font-size: 2.5em;
-}
-
-.title-bar .one {
-  font-weight: bold;
-  color: #99ffcc;
-}
-
-.title-bar .two {
-  font-weight: bold;
-  color: #000;
-}
-
-.title-bar .three {
-  font-weight: bold;
-  color: #cccc99;
-}
-
-.title-bar .four {
-  font-weight: bold;
-  color: #0099cc;
-}
-
 .card {
   background: #fff;
-  float: left;
   margin: 15px;
-  width: 33.3333%;
-}
-
-img {
-  max-width: inherit;
+  width: 30%;
+  height: 400px;
+  border: none;
 }
 
 .card-img {
+  position: relative;
   max-width: 100%;
-  height: auto;
+  height: 200px;
+  overflow: hidden;
+}
+
+img {
+  position: absolute;
+  top: -10%;
+  max-width: inherit;
 }
 
 .card-content {
-  padding: 20px;
+  height: 200px;
+  padding: 15px;
 }
 
 .card-title {
-  text-align: center;
-  font-size: 2em;
+  font-size: 1.6em;
   font-weight: bold;
   letter-spacing: 0.1em;
+  margin: 0;
 }
 
 .card-bar {
   color: #00ccff;
+  font-size: x-large;
+  margin-bottom: 10px;
 }
 
 .card-text {
-  font-size: 1.2em;
+  font-size: 1.5em;
   text-align: center;
   color: #999;
   letter-spacing: 0.1em;
+  line-height: 2em;
   overflow: hidden;
   width: 100%;
-  text-overflow: ellipsis;
-  white-space: nowrap;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  margin-top: 20px;
 }
 

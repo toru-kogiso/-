@@ -12,7 +12,7 @@
         <h2 class="page-title">イベント情報</h2>
         <p class="sub-title">EVENT</p>
         <p class="title-bar">
-        <span class="one">__</span><span class="two">__</span><span class="three">__</span><span class="four">__</span>
+        <span></span>
         </p>
     </div>
     

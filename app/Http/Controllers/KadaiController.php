@@ -14,7 +14,7 @@ class KadaiController extends Controller
         return view('kadai/create');
     }
     
-    public function kadai_index()
+    public function kadai_index(Request $request)
     {
         $events = Event::all()->sortByDesc('created_at');
         
