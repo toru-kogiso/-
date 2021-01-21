@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\HTML;
 use App\Http\Requests;
 use App\Event;
+use Storage;
 
 class KadaiController extends Controller
 {
@@ -29,8 +30,8 @@ class KadaiController extends Controller
         $form = $request->all();
         
         if (isset($form['image'])) {
-         $path = $request->file('image')->store('public/image');
-         $events->image_path = basename($path);
+         $path = Storage::disk('s3')->putFile('/', $form['image'], 'public');
+         $events->image_path = Storage::disk('s3')->url($path);
       } else {
          $events->image_path = null;
       }

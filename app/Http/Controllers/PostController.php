@@ -9,6 +9,7 @@ use App\Http\Requests;
 use App\Post;
 use App\User;
 use InterventionImage;
+use Storage;
 
 class PostController extends Controller
 {
@@ -35,20 +36,13 @@ class PostController extends Controller
       $form = $request->all();
       // formに画像があれば、保存する
         if (isset($form['image'])) {
-            $image = $request->file('image');
-            $filename = $image->getClientOriginalname();
-            //画像をリサイズ
-            $image = InterventionImage::make($image)
-	        ->resize(300, 300, function ($constraint) {
-	            $constraint->aspectRatio();
-	        })
-	        ->save(public_path() . '/storage/image/' . $filename);
-	        $posts->image_path = basename($filename);
+            $image = Storage::disk('s3')->putFile('/', $form['image'], 'public');
+            
+	        $posts->image_path = storage::disk('s3')->url($image);
 
       } else {
          $posts->image_path = null;
       }
-      
       // フォームから送信されてきた_tokenを削除する
       unset($form['_token']);
       // フォームから送信されてきたimageを削除する
@@ -98,20 +92,14 @@ class PostController extends Controller
         
         $posts = Post::find($request->id);
         
+        $form = $request->all();
         $posts_form = $request->all();
         if ($request->remove == 'true') {
           $posts_form['image_path'] = null;
           
       } elseif ($request->file('image')) {
-            $image = $request->file('image');
-            $filename = $image->getClientOriginalname();
-            //画像をリサイズ
-            $image = InterventionImage::make($image)
-	        ->resize(300, 300, function ($constraint) {
-	            $constraint->aspectRatio();
-	        })
-	        ->save(public_path() . '/storage/image/' . $filename);
-	        $posts->image_path = basename($filename);
+            $image = Storage::disk('s3')->putFile('/', $form['image'], 'public');
+	        $posts_form['image_path'] = storage::disk('s3')->url($image);
           
       } else {
           $posts_form['image_path'] = $posts->image_path;

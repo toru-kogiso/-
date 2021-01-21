@@ -20,7 +20,7 @@
          @foreach($events as $event)
               <div class="card">
                   <div class="card-img">
-                 <img src="{{ asset('storage/image/' . $event->image_path) }}">
+                 <img src="{{ $event->image_path }}">
                  </div>
                  <div class="card-content">
                      <h3 class="card-title">{{ $event->title }}</h3>

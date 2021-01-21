@@ -6,7 +6,7 @@
 <div class="container mt-4">
     <div class="border p-4">
         <!-- タイトル -->
-        <h2 class="title">
+        <h2 class="post-title">
             {{ $post->title }}
         </h2>
         <!-- 投稿情報 -->
@@ -14,14 +14,14 @@
         <hr color="#c0c0c0">
         
         <!-- 本文 -->
-        <div class="body">
+        <div class="post-body">
             {!! nl2br(e($post->body)) !!} <!-- 改行表示 -->
         </div>
         
         <!-- 画像 -->
-        <div class="image">
+        <div class="post-image">
             @if ($post->image_path)
-                <img src="{{ asset('storage/image/' . $post->image_path) }}">
+                <img class="photo" src="{{ $post->image_path }}">
             @endif       
         </div>
         
