@@ -39,6 +39,5 @@
             </div>
         @endif
         <hr color="#c0c0c0">
-        <a href="{{ route('kadai') }}" class="btn btn-dark">課題ページ</a>
     
 @endsection

@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand sticky-top navbar-dark bg-dark">
+        <nav class="navbar navbar-expand sticky-top navbar-dark bg-dark">
                 <div class="container">
                     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav4" aria-controls="navbarNav4" aria-expanded="false" aria-label="Toggle navigation">
                        <span class="navbar-toggler-icon"></span>
@@ -12,7 +12,7 @@
                          <li class="nav-item">
                            <a class="nav-link" href="{{ route('post') }}">投稿一覧</a>
                          </li>
-                         @auth
+                         @auth<!-- ログイン中の表示 -->
                          <li class="nav-item">
                             <a class="nav-link" href="{{ route('mypage') }}">マイページ</a>
                          </li>
@@ -52,5 +52,5 @@
                             @endguest
                         </ul>
                     </div>
-                </div>
-            </nav>
+        </nav>
+   
