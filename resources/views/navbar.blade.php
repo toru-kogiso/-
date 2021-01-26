@@ -1,10 +1,10 @@
-        <nav class="navbar navbar-expand sticky-top navbar-dark bg-dark">
+        <nav class="navbar navbar-expand-md sticky-top navbar-dark bg-dark p-3">
                 <div class="container">
                     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav4" aria-controls="navbarNav4" aria-expanded="false" aria-label="Toggle navigation">
                        <span class="navbar-toggler-icon"></span>
                     </button>
                        
-                 <div class="collapse navbar-collapse">
+                 <div class="collapse navbar-collapse" id="navbarNav4">
                       <ul class="navbar-nav">
                          <li class="nav-item">
                              <a class="nav-link" href="{{ route('top') }}">トップページ</a>
@@ -27,7 +27,7 @@
                       </ul>
                  </div>
                         <!-- Right Side Of Navbar -->
-                        <ul class="navbar-nav ml-auto">
+                        <ul class="navbar-nav ml-auto" id="Right-navbar">
                         <!-- ログインしていなかったらログイン画面へのリンクを表示 -->
                         @guest
                             <li><a class="nav-link" href="{{ route('login') }}">{{ __('messages.Login') }}</a></li>
@@ -51,6 +51,6 @@
                             </li>
                             @endguest
                         </ul>
-                    </div>
+                </div>
         </nav>
    

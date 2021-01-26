@@ -1,4 +1,6 @@
-@charset "UTF-8";
+#app {
+  overflow: hidden;
+}
 
 html {
   height: 100%;
@@ -11,28 +13,53 @@ body {
   color: #000;
 }
 
-.jumbotron-extend {
-  background: url(/images/top_image.jpg?729a7ec2167dc217b20d01cc9dbccdd8) no-repeat center center;
-  background-size: cover;
+.nav-item {
+  font-size: 1.4em;
 }
 
-.site-name {
-  font-size: 90pt;
-  color: #14e64b;
+#Right-navbar {
+  font-size: 1.4em;
+}
+
+.top_image {
+  position: relative;
+  width: 100%;
+}
+
+.top_image p {
+  font-size: 50px;
+  text-align: center;
+  color: #fff;
   font-style: italic;
   font-weight: bold;
-  opacity: 0.8;
   text-shadow: 0 5px 5px black;
   font-family: "Times New Roman", serif;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  margin: 0;
+  padding: 0;
+}
+
+@media screen and (min-width: 768px) {
+  .top_image p {
+    font-size: 150px;
+  }
+}
+
+.top_image img {
+  width: 100%;
+  margin-bottom: 20px;
+  height: auto;
 }
 
 .page-title {
   font-size: 40px;
-  font-style: italic;
-  font-family: "\FF2D\FF33   \FF30\30B4\30B7\30C3\30AF", serif;
+  margin: 0;
 }
 
-.py-4 {
+.mb-3 {
   flex: 1;
 }
 
@@ -45,7 +72,7 @@ footer {
 }
 
 footer .text-muted {
-  margin: 20px;
+  padding: 20px;
 }
 
 .btn {

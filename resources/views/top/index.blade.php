@@ -3,16 +3,17 @@
 @section('title', 'MusicFans')
 
 @section('content')
-    <div class="container">
-        <div class="jumbotron jumbotron-extend">
-            <div class="container-fluid text-center">
-                <h1 class="site-name">Music Fans</h1>
-                <p class="sub-title"></p>
+    <div class="container-fulid">
+        <div class="row">
+            <div class="top_image">
+            <img src="{{ asset('storage/image/top_image.jpg') }}" alt="top-image">
+                <p>Music Fans</p>
             </div>
         </div>
-        
+    </div> 
+    <div class="container">
         <div class="row">
-            <h1 class="page-title">最新記事</h1>
+            <h1 class="page-title col-md-12 mx-auto">最新投稿</h1>
         </div>
         <hr color="#c0c0c0">
         @if (!is_null($headline))
@@ -35,9 +36,13 @@
                             <p class="body mx-auto">{!! nl2br(e($headline->body)) !!}</p>
                         </div>
                     </div>
+                    <div class="row">
+                        <div class="about col-md-12 mx-auto">
+                            
+                        </div>
+                    </div>
                 </div>
-            </div>
+    </div>            
         @endif
         <hr color="#c0c0c0">
-    
 @endsection

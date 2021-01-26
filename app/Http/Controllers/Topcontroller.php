@@ -10,7 +10,7 @@ class Topcontroller extends Controller
 {
     public function index(Request $request)
     {
-        $posts = Post::all()->sortByDesc('updated_at');
+        $posts = Post::all()->sortByDesc('created_at');
         
         if (count($posts) > 0) {
             $headline = $posts->shift();
