@@ -21,9 +21,15 @@
     </head>
     <body>
         <div id="app">
+            <header>
+            <div class="site_logo">
+                <a href="{{ route('top') }}">
+                <img src="{{ asset('storage/image/logo.png') }}" alt="サイトのロゴ">
+                </a>
+            </div>
             {{-- ナビゲーションバー --}}
             @include('navbar')
-           
+            </header>
             <main class="mb-3">
                 {{-- コンテンツをここに入れるため、@yieldで空けておきます。 --}}
                 @yield('content')
