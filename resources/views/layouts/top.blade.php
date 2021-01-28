@@ -15,6 +15,7 @@
         <link href="https://fonts.googleapis.com/css?family=Raleway:300,400,600" rel="stylesheet" type="text/css">
         
         <!-- Styles -->
+        <link href="{{ secure_asset('css/base.css') }}" rel="stylesheet">
         <link href="{{ secure_asset('css/app.css') }}" rel="stylesheet">
         <link href="{{ secure_asset('css/front.css') }}" rel="stylesheet">
         
@@ -22,11 +23,6 @@
     <body>
         <div id="app">
             <header>
-            <div class="site_logo">
-                <a href="{{ route('top') }}">
-                <img src="{{ asset('storage/image/logo.png') }}" alt="サイトのロゴ">
-                </a>
-            </div>
             {{-- ナビゲーションバー --}}
             @include('navbar')
             </header>

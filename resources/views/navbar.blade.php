@@ -1,6 +1,10 @@
-    <div class="fixed-top">
-        <nav class="navbar navbar-expand-md navbar-dark bg-dark">
+        <nav class="navbar navbar-expand-md fixed-top navbar-dark bg-dark">
                 <div class="container">
+                    {{--
+                    <a class="navbar-brand" href="{{ route('top') }}">
+                      <img src="{{ asset('storage/image/logo.png') }}" alt="MusicFansのロゴ">
+                    </a>
+                    --}}
                     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav4" aria-controls="navbarNav4" aria-expanded="false" aria-label="Toggle navigation">
                        <span class="navbar-toggler-icon"></span>
                     </button>
@@ -54,4 +58,3 @@
                         </ul>
                 </div>
         </nav>
-   </div>

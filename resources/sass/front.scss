@@ -5,34 +5,10 @@ $ipad-width: 768px; //iPad以上の時
   }
 }
 
-#app {
-  overflow: hidden;
-}
-
-html {
-  height: 100%;
-}
-
-body {
-  min-height: 100%;
-  display: flex;
-  flex-direction: column;
-  color: #000;
-}
-
-.nav-item {
-  font-size: 1.4em;
-  letter-spacing: 0.05em;
-}
-
-#Right-navbar {
-  font-size: 1.4em;
-  letter-spacing: 0.05em;
-}
-
 .top_image {
   position: relative;
   width: 100%;
+  margin-top: -14px;
 }
 
 .top_image p{
@@ -60,6 +36,9 @@ body {
   width: 100%;
   margin-bottom: 20px;
   height: auto;
+  @include media-query($ipad-width){
+    height: 100vh;
+  }
 }
 
 .page-title {
@@ -79,61 +58,6 @@ body {
     padding: 0;
   }
 }
-
-.header {
-  .logo {
-      width: 120px;
-      height: 82px;
-  }
-}
-
-.headline {
-  .caption {
-     position: relative;
-     width: 350px;
-    .image {
-      width: 100%;
-      img {
-     width: 100%;        
-      }
-     }
-    .title {
-        width: 100%;
-        position: absolute;
-        bottom: 0;
-        left: 0;
-        background-color: rgba(0, 0, 0, 0.6);
-        h1 {
-      color: #fff;
-      font-size: 1.2em;
-        }
-    }
-    .body {
-        font-size: 0.8em;
-    }
-  }
-}
-
-.posts {
-  .post {
-    .date {
-      font-size: 0.6em;
-      color: #999999;
-    }
-    .title {
-      font-size: 1.2em;
-      font-weight: bold;
-    }
-    .body {
-      font-size: 0.8em;
-    }
-    .image {
-        img {
-      width: 250px;
-      }
-    }
-  }
-} 
 
 .about {
   margin: 0 auto;
@@ -164,18 +88,47 @@ body {
   margin: 0;
 }
 
-footer {
-    bottom: 0;
-    width: 100%;
-    height: 60px;
-    background-color: #cdcdcd;
-    text-align: center;
-    
-    .text-muted {
-       padding: 20px;
-    }
+.new-post {
+  width: 100%;
+  flex-wrap: wrap; 
+  @include media-query($ipad-width){
+    display: flex; //並列
+    flex-wrap: nowrap; //1列表示
+  }
+  margin-bottom: 10px;
+}  
+
+.card {
+  background: #fff;
+  width: 100%; 
+  @include media-query($ipad-width){
+    width: 32%;//3分割
+  }
+  border: none;
+  margin-bottom: 5%;
+  @include media-query($ipad-width){
+    margin-right: 2%;
+    &:last-child { //最後のカードだけ0に
+    margin-right: 0;
+  }
+  }
 }
 
-.btn {
-  margin: 5px;
+.card-img{
+  width: 100%;
+  height: 300px;
+  object-fit: contain;
+}
+.card-body {
+  padding: 12px;
+}
+
+.card-text {
+  letter-spacing: 0.1em;
+  line-height: 1.5em; //改行隙間
+  overflow: hidden;
+	width: 100%;
+	display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
 }

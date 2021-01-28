@@ -10,14 +10,9 @@ class Topcontroller extends Controller
 {
     public function index(Request $request)
     {
-        $posts = Post::all()->sortByDesc('created_at');
         
-        if (count($posts) > 0) {
-            $headline = $posts->shift();
-        } else {
-            $headline = null;
-        }    
+        $posts = Post::orderBy('created_at', 'DESC')->take(3)->get(); //投稿順に3件表示
         
-        return view('top.index', ['headline' => $headline, 'posts' => $posts,]);
+        return view('top.index', ['posts' => $posts,]); 
     }
 }

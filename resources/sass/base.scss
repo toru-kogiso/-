@@ -30,10 +30,64 @@ footer, header, nav, section {
 a{
   text-decoration: none;
 }
-//iPad以上の画面サイズの時(PC含む)
-$ipad-width: 768px;
+
+//main css
+$ipad-width: 768px; //iPad以上の時
 @mixin media-query($device) {
   @media screen and (min-width: $device) {
       @content;
   }
+}
+
+#app {
+  min-height: 100vh;
+  position: relative;
+  padding-bottom: 62px;//フッターの高さ
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+html {
+  height: 100%;
+}
+
+body {
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
+  color: #000;
+}
+
+.mb-3 {
+    padding-top: 90px;
+}
+
+.navbar-brand {
+  
+}
+
+.nav-item {
+  font-size: 1.4em;
+  letter-spacing: 0.05em;
+}
+
+#Right-navbar {
+  font-size: 1.4em;
+  letter-spacing: 0.05em;
+}
+
+footer {
+  position: absolute;
+    bottom: 0;
+    width: 100%;
+    background-color: #cdcdcd;
+    text-align: center;
+    
+    .text-muted {
+       padding: 20px;
+    }
+}
+
+.btn {
+  margin: 5px;
 }

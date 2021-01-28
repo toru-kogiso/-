@@ -16,29 +16,24 @@
             <h1 class="page-title col-md-12 mx-auto">最新投稿</h1>
         </div>
         <hr color="#c0c0c0">
-        @if (!is_null($headline))
-            <div class="row">
-                <div class="headline mx-auto">
-                    <div class="row">
-                        <div class="col-md-6">
-                            <div class="caption mx-auto">
-                                <div class="image">
-                                    @if ($headline->image_path)
-                                        <img src="{{ $headline->image_path }}">
-                                    @endif
-                                </div>
-                                <div class="title p-2">
-                                    <h1>{{ str_limit($headline->title, 70) }}</h1>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <p class="body mx-auto">{!! nl2br(e($headline->body)) !!}</p>
-                        </div>
-                    </div>
-                </div>
+        <div class="row">
+        <div class="new-post">
+            @foreach($posts as $post)
+              <div class="card">
+                   <img src="{{ $post->image_path }}" class="card-img">
+                   <div class="card-body">
+                       <h4 class="card-title">{{ $post->title }}</h4>
+                       <hr>
+                       <p class="card-text">{!! nl2br(e($post->body)) !!} </p>
+                       <h7 class="card-date">{{ $post->created_at->format('Y年m月d日') }}</h7>
+                   </div>
+               </div>
+            @endforeach
+        </div>
+            <div class="d-flex justify-content-end">
+            <a href="{{ action('PostController@post_index') }}" class="btn btn-dark">ほかの投稿も見る</a>
             </div>
-        @endif
+        </div>
         <hr color="#c0c0c0">
         <div class="row">
             <div class="about col-md-12 mx-auto">
