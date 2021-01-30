@@ -4,28 +4,23 @@
 
 @section('content')
     <div class="container">
-      <div class="header">
-          <h1 class="page-title">投稿一覧</h1>
+      <div class="row">
+          <h1 class="page-title col-md-12 mx-auto">投稿一覧</h1>
       </div>
-       <div class="row">
-            <div class="col-md-4">
-                <a href="{{ action('PostController@add') }}" role="button" class="btn btn-dark">新規作成</a>
-            </div>
-            <div class="col-md-8">
-                <form action="{{ action('PostController@post_index') }}" method="get">
-                    <div class="form-group row">
-                        <label class="col-md-2">タイトル</label>
-                        <div class="col-md-8">
-                            <input type="text" class="form-control" name="cond_title" value="{{ $cond_title }}">
-                        </div>
-                        <div class="col-md-2">
+      <div class="row">
+          <div class="col-md-8">
+              <form action="{{ action('PostController@post_index') }}" method="get">
+                    <div class="form-group">
+                            <input type="search" class="form-control" name="cond_title" placeholder="タイトル" value="{{ $cond_title }}">
                             {{ csrf_field() }}
                             <input type="submit" class="btn btn-dark" value="検索">
-                        </div>
                     </div>
                 </form>
-            </div>
-        </div>
+          </div>
+          <div class="col-md-4">
+                <a href="{{ action('PostController@add') }}" role="button" class="btn btn-dark order1">新規作成</a>
+          </div>
+      </div>
         <div class="row">
             <div class="list-news col-md-12 mx-auto">
                 <div class="row">

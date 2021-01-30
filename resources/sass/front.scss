@@ -41,6 +41,13 @@ $ipad-width: 768px; //iPad以上の時
   }
 }
 
+.mb-3 {
+  padding-top: 77px;
+  @include media-query($ipad-width){
+    padding: 0;
+  }
+}
+
 .page-title {
   font-family: "Times New Roman", serif;
   font-size: 20px;
@@ -48,16 +55,10 @@ $ipad-width: 768px; //iPad以上の時
     font-size: 40px;
     text-align: center;
   }
-  margin: 0;
+  margin-left: 10px;
   letter-spacing: 3px;
 }
 
-.mb-3 {
-  padding-top: 77px;
-  @include media-query($ipad-width){
-    padding: 0;
-  }
-}
 
 .about {
   margin: 0 auto;

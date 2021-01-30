@@ -1,0 +1,53 @@
+$ipad-width: 768px; //iPad以上の時
+@mixin media-query($device) {
+  @media screen and (min-width: $device) {
+      @content;
+  }
+}
+
+.page-title {
+  font-family: "Times New Roman", serif;
+  font-size: 20px;
+  @include media-query($ipad-width){
+    font-size: 40px;
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  margin: 0;
+  letter-spacing: 3px;
+}
+
+.form-group {
+    margin: 20px 0 0 0;
+}    
+
+input[type=search] {
+	-webkit-appearance: none;
+	display: inline-block;
+	margin-right: 0;
+	margin-bottom: 20px;
+	padding: 10px;
+	width: 285px;
+	@include media-query($ipad-width){
+	    width: 300px;
+	}
+	height: 40px;
+	font-size: 100%;
+	box-sizing: border-box;
+	border-radius: 5px 0 0 5px;
+	border: 1px solid #ccc;
+	border-right: none;
+}
+
+input[type=submit] {
+	-webkit-appearance: none;
+	display: inline-block;
+	padding: 0 10px;
+	color: #fff;
+	width: 50px;
+	height: 40px;
+	font-size: 100%;
+	vertical-align: top;
+	border: none;
+	border-radius: 0 5px 5px 0;
+}

@@ -17,6 +17,7 @@
         <!-- Styles -->
         <link href="{{ secure_asset('css/base.css') }}" rel="stylesheet">
         <link href="{{ secure_asset('css/app.css') }}" rel="stylesheet">
+        <link href="{{ secure_asset('css/post.css') }}" rel="stylesheet">
         <link href="{{ secure_asset('css/show.css') }}" rel="stylesheet">
     </head>
     <body>
