@@ -11,7 +11,7 @@ $ipad-width: 768px; //iPad以上の時
   margin-top: -14px;
 }
 
-.top_image p{
+.top_image h1{
   font-size: 50px;
   text-align: center;
   @include media-query($ipad-width){
@@ -61,31 +61,32 @@ $ipad-width: 768px; //iPad以上の時
 
 
 .about {
-  margin: 0 auto;
+  margin: 10px 0;
 }
 
-.about h1 {
+.about h2 {
   font-size: 20px;
-  @include media-query($ipad-width){
-    font-size: 40px;
-    text-align: center;
-}
+    @include media-query($ipad-width){
+      font-size: 40px;
+      text-align: center;
+    }
   font-family: 'Times New Roman', serif;
   letter-spacing: 4px;
-  margin: 0;
+  margin-bottom: 10px;
+  border-bottom: #ccc solid 1.5px;
 }
 
-.about h1 span {
+.about .letter {
   letter-spacing: -2px;
 }
 
-.about h3{
+.about p{
   font-size: 11px;
   @include media-query($ipad-width){
     font-size: 20px;
   }
   letter-spacing: 3px;
-  line-height: 1.4em;
+  line-height: 1.2em;
   margin: 0;
 }
 
@@ -96,7 +97,6 @@ $ipad-width: 768px; //iPad以上の時
     display: flex; //並列
     flex-wrap: nowrap; //1列表示
   }
-  margin-bottom: 10px;
 }  
 
 .card {
@@ -115,11 +115,17 @@ $ipad-width: 768px; //iPad以上の時
   }
 }
 
-.card-img{
+.card-img {
   width: 100%;
   height: 300px;
-  object-fit: contain;
+  overflow: hidden;
+  img {
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+  }
 }
+
 .card-body {
   padding: 12px;
 }
@@ -133,3 +139,16 @@ $ipad-width: 768px; //iPad以上の時
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 3;
 }
+
+.button {
+    display: block;
+    margin: 0 0 0 auto;
+}
+
+/*
+.card-img{
+  width: 100%;
+  height: 300px;
+  object-fit: contain;
+}
+*/

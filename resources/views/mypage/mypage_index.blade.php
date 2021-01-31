@@ -4,9 +4,15 @@
 
 @section('content')
     <div class="container">
-      <div class="header">
-          <h1 class="page-title">マイページ</h1>
+      <div class="row">
+        <h1 class="page-title col-md-12 mx-auto">マイページ</h1>
       </div>
-      
-    </din>
+      <div class="row">
+        <div class="myprofile col-md-4">
+          <h2>プロフィール</h2>
+          <p class="myname">ユーザー名</p>
+          
+        </div>
+      </div>
+    </div>
 @endsection    

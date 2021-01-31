@@ -11,9 +11,9 @@
           <div class="col-md-8">
               <form action="{{ action('PostController@post_index') }}" method="get">
                     <div class="form-group">
-                            <input type="search" class="form-control" name="cond_title" placeholder="タイトル" value="{{ $cond_title }}">
+                        <input type="search" class="form-control" name="cond_title" placeholder="タイトル" value="{{ $cond_title }}">
                             {{ csrf_field() }}
-                            <input type="submit" class="btn btn-dark" value="検索">
+                        <input type="submit" class="btn btn-dark" value="検索">
                     </div>
                 </form>
           </div>
@@ -21,7 +21,7 @@
                 <a href="{{ action('PostController@add') }}" role="button" class="btn btn-dark order1">新規作成</a>
           </div>
       </div>
-        <div class="row">
+      <div class="row">
             <div class="list-news col-md-12 mx-auto">
                 <div class="row">
                     <table class="table table-hover text-center">
