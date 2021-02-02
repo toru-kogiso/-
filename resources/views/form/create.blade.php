@@ -70,7 +70,7 @@
                   </div>
                   
                   {{ csrf_field() }}
-                  <input type="submit" class="btn btn-primary" value="送信">
+                  <input type="submit" class="btn btn-dark" value="送信">
                </form>
                
                

@@ -6,7 +6,6 @@
 <div class="container-fulid">
     <div class="row">
         <div class="top_image">
-            <img src="{{ asset('storage/image/top_image.jpg') }}" alt="トップ画像">
             <h1>Music Fans</h1>
         </div>
     </div>
@@ -20,7 +19,11 @@
             @foreach($posts as $post)
                 <div class="card">
                     <div class="card-img">
-                        <img src="{{ $post->image_path }}">
+                        @if ($post->image_path)
+                            <img class="photo" src="{{ $post->image_path }}"　alt="投稿画像">
+                        @else
+                            <div class="none"></div>
+                        @endif       
                     </div>
                     <div class="card-body">
                         <h4 class="card-title">{{ $post->title }}</h4>

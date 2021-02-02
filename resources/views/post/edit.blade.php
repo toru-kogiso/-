@@ -6,7 +6,7 @@
     <div class="container">
         <div class="row">
             <div class="col-md-8 mx-auto">
-                <h1>投稿編集</h1>
+                <h2 class="page-title">投稿編集</h2>
                 <form action="{{ action('PostController@update') }}" method="post" enctype="multipart/form-data">
                     @if (count($errors) > 0)
                         <ul>
@@ -45,7 +45,7 @@
                         <div class="col-md-10">
                             <input type="hidden" name="id" value="{{ $posts_form->id }}">
                             {{ csrf_field() }}
-                            <input type="submit" class="btn btn-primary" value="更新">
+                            <input type="submit" class="btn btn-dark" value="更新">
                         </div>
                     </div>
                 </form>

@@ -1,15 +1,22 @@
-.span  .time {
-    float: right;
+$ipad-width: 768px; //iPad以上の時
+@mixin media-query($device) {
+  @media screen and (min-width: $device) {
+      @content;
+  }
 }
 
-.body {
-    clear: left;
+.p {
+    float: right;
 }
 
 .post-image {
     position: relative;
-    width: 400px;
-    height: 400px;
+    width: 300px;
+    height: 300px;
+    @include media-query($ipad-width){
+        width: 400px;
+        height: 400px;
+    }
     float: right;
 }
 
@@ -26,10 +33,7 @@
     margin: auto;
 }
 
-.back {
-    clear: right;
-}
-
+/*Like CSS*/
 button {
   display       : inline-block;
   border-radius : 5%;          /* 角丸       */
@@ -48,4 +52,16 @@ button:hover {
   box-shadow    : none;        /* カーソル時の影消去 */
   color         : #ff007f;     /* 背景色     */
   background    : #ffffff;     /* 文字色     */
+}
+
+.btn1 {
+    margin: 10px;
+}
+
+.btn2 {
+    margin: 10px 0 0 auto;
+}
+
+.none {
+    display: none;
 }

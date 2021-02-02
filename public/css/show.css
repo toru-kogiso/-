@@ -1,18 +1,21 @@
 @charset "UTF-8";
 
-.span .time {
+.p {
   float: right;
-}
-
-.body {
-  clear: left;
 }
 
 .post-image {
   position: relative;
-  width: 400px;
-  height: 400px;
+  width: 300px;
+  height: 300px;
   float: right;
+}
+
+@media screen and (min-width: 768px) {
+  .post-image {
+    width: 400px;
+    height: 400px;
+  }
 }
 
 .photo {
@@ -28,9 +31,7 @@
   margin: auto;
 }
 
-.back {
-  clear: right;
-}
+/*Like CSS*/
 
 button {
   display: inline-block;
@@ -65,5 +66,17 @@ button:hover {
   /* 背景色     */
   background: #ffffff;
   /* 文字色     */
+}
+
+.btn1 {
+  margin: 10px;
+}
+
+.btn2 {
+  margin: 10px 0 0 auto;
+}
+
+.none {
+  display: none;
 }
 

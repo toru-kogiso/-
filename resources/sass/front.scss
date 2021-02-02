@@ -6,13 +6,26 @@ $ipad-width: 768px; //iPad以上の時
 }
 
 .top_image {
+  background-attachment: fixed;
+  background-image: url('storage/image/top_image.jpg');
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
   position: relative;
+  height: 100vh;
   width: 100%;
-  margin-top: -14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: -13px;
+  @include media-query($ipad-width){
+    margin-top: 0;
+  }
+  margin-bottom: 10px;
 }
 
 .top_image h1{
-  font-size: 50px;
+  font-size: 100px;
   text-align: center;
   @include media-query($ipad-width){
     font-size: 150px;
@@ -30,22 +43,6 @@ $ipad-width: 768px; //iPad以上の時
   margin: 0;
   padding: 0;
   
-}
-
-.top_image img {
-  width: 100%;
-  margin-bottom: 20px;
-  height: auto;
-  @include media-query($ipad-width){
-    height: 100vh;
-  }
-}
-
-.mb-3 {
-  padding-top: 77px;
-  @include media-query($ipad-width){
-    padding: 0;
-  }
 }
 
 .page-title {
@@ -116,13 +113,22 @@ $ipad-width: 768px; //iPad以上の時
 }
 
 .card-img {
-  width: 100%;
-  height: 300px;
+  position: relative;
+  //width: 100%;
+  //height: 300px;
   overflow: hidden;
+  padding-top: 65%;
   img {
-    min-width: 100%;
-    min-height: 100%;
-    width: auto;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    //min-width: 100%;
+    //min-height: 100%;
+    //width: auto;
   }
 }
 
@@ -143,6 +149,10 @@ $ipad-width: 768px; //iPad以上の時
 .button {
     display: block;
     margin: 0 0 0 auto;
+}
+
+.none {
+    display: none;
 }
 
 /*

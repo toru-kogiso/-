@@ -28,12 +28,12 @@ class PostController extends Controller
     {
         $cond_title = $request->cond_title;
         if ($cond_title != '') {
-            $posts= Post::where('title', $cond_title)->get();
+            $posts= Post::where('title', $cond_title)->get();//検索された検索結果を取得する
         } else {
             $posts = Post::all();
         }
         
-         //更新順に並び替え
+         //作成順に並び替え
         $posts = Post::all()->sortByDesc('created_at');
         
         return view('post.post_index', ['posts' => $posts, 'cond_title' => $cond_title,]);
