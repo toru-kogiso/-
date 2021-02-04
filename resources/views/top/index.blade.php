@@ -11,20 +11,22 @@
     </div>
 </div> 
 <div class="container top-main">
-    <div class="row">
-        <h2 class="page-title col-md-12 mx-auto">最新投稿</h2>
-    </div>
-    <div class="row top-post">
-        <div class="new-post">
+        <div class="row">
+            <h2 class="page-title col-md-12 mx-auto">最新投稿</h2>
+        </div>
+        <div class="row top-post">
+            <div class="new-post">
             @foreach($posts as $post)
                 <div class="card">
+                    <a href="{{ action('PostController@show', $post->id) }}">
                     <div class="card-img">
                         @if ($post->image_path)
                             <img class="photo" src="{{ $post->image_path }}"　alt="投稿画像">
                         @else
-                            <div class="none"></div>
+                            <div class="no_image"><p class="caption">この投稿に画像はありません</p></div>
                         @endif       
                     </div>
+                    </a>
                     <div class="card-body">
                         <h4 class="card-title">{{ $post->title }}</h4>
                         <hr>

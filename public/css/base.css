@@ -81,7 +81,6 @@ a {
 #app {
   min-height: 100vh;
   position: relative;
-  padding-bottom: 62px;
   box-sizing: border-box;
   overflow: hidden;
 }
@@ -107,8 +106,12 @@ body {
   letter-spacing: 0.05em;
 }
 
+.mb-3 {
+  padding-top: 77px;
+}
+
 footer {
-  position: absolute;
+  position: relative;
   bottom: 0;
   width: 100%;
   background-color: #cdcdcd;

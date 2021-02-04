@@ -161,8 +161,29 @@
   margin: 0 0 0 auto;
 }
 
-.none {
-  display: none;
+.no_image {
+  background-image: url(/images/no_image.jpg?197d3fc5a95de1c17f2f2606c9e43a85);
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: absolute;
+  top: -25px;
+  left: 0px;
+  height: 300px;
+  width: 100%;
+}
+
+.no_image .caption {
+  text-align: center;
+  width: inherit;
+  font-size: 25px;
+  position: absolute;
+  top: 82%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  margin: 0;
+  padding: 0;
+  color: black;
 }
 
 /*

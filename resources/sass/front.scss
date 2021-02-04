@@ -97,16 +97,16 @@ $ipad-width: 768px; //iPad以上の時
 .card {
   background: #fff;
   width: 100%; 
-  @include media-query($ipad-width){
-    width: 32%;//3分割
-  }
+    @include media-query($ipad-width){
+      width: 32%;//3分割
+    }
   border: none;
   margin-bottom: 5%;
-  @include media-query($ipad-width){
+    @include media-query($ipad-width){
     margin-right: 2%;
     &:last-child { //最後のカードだけ0に
     margin-right: 0;
-  }
+    }
   }
 }
 
@@ -149,8 +149,28 @@ $ipad-width: 768px; //iPad以上の時
     margin: 0 0 0 auto;
 }
 
-.none {
-    display: none;
+.no_image {
+    background-image: url('storage/image/no_image.jpg');
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: absolute;
+    top: -25px;
+    left: 0px;
+    height: 300px;
+    width: 100%;
+    .caption {
+      text-align: center;
+      width: inherit;
+      font-size: 25px;
+      position: absolute;
+      top: 82%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      margin: 0;
+      padding: 0;
+      color: black;
+    }
 }
 
 /*

@@ -49,3 +49,89 @@ input[type=submit] {
 	font-size: 100%;
 	vertical-align: top;
 }
+
+.content {
+  width: 100%;
+  flex-wrap: wrap; 
+  @include media-query($ipad-width){
+    display: flex; //並列
+  }
+}  
+
+.card {
+  background: #fff;
+  width: 100%; 
+  @include media-query($ipad-width){
+    width: 32%;//3分割
+  }
+  border: none;
+  margin-bottom: 2%;
+  @include media-query($ipad-width){
+    margin-right: 1%;
+    &:last-child { //最後のカードだけ0に
+    margin-right: 0;
+  }
+  }
+}
+
+.card-img {
+  position: relative;
+  //width: 100%;
+  //height: 300px;
+  overflow: hidden;
+  padding-top: 65%;
+  img {
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    //min-width: 100%;
+    //min-height: 100%;
+    //width: auto;
+  }
+}
+
+.card-body {
+  padding: 12px;
+}
+
+.card-text {
+  letter-spacing: 0.1em;
+  line-height: 1.5em; //改行隙間
+  overflow: hidden;
+	width: 100%;
+	display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+}
+
+.paginate {
+	margin: 0 auto;
+}
+
+.no_image {
+    background-image: url('storage/image/no_image.jpg');
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: absolute;
+    top: -25px;
+    left: 0px;
+    height: 300px;
+    width: 100%;
+    .caption {
+      text-align: center;
+      width: inherit;
+      font-size: 25px;
+      position: absolute;
+      top: 82%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      margin: 0;
+      padding: 0;
+      color: black;
+    }
+}

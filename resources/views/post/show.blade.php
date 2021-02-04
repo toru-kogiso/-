@@ -3,9 +3,9 @@
 @section('title', '投稿詳細')
 
 @section('content')
-<div class="container ">
+<div class="container mt-2">
     <div class="row">
-        <div class="content col-md-6">
+        <div class="summary col-md-6">
             <!-- タイトル -->
             <h2 class="post-title">{{ $post->title }}</h2>
             <!-- 投稿情報 -->
@@ -20,7 +20,7 @@
             @if ($post->image_path)
                 <img class="photo" src="{{ $post->image_path }}"　alt="投稿画像">
             @else
-                <div class="none"></div>
+                <div class="no_image"><p class="caption">この投稿に画像はありません</p></div>
             @endif       
         </div>
     </div>    

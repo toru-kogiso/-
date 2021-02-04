@@ -42,7 +42,6 @@ $ipad-width: 768px; //iPad以上の時
 #app {
   min-height: 100vh;
   position: relative;
-  padding-bottom: 62px;//フッターの高さ
   box-sizing: border-box;
   overflow: hidden;
 }
@@ -68,16 +67,20 @@ body {
   letter-spacing: 0.05em;
 }
 
+.mb-3 {
+  padding-top: 77px;
+}
+
 footer {
-  position: absolute;
-    bottom: 0;
-    width: 100%;
-    background-color: #cdcdcd;
-    text-align: center;
-    
-    .text-muted {
-       padding: 20px;
-    }
+  position: relative;
+  bottom: 0;
+  width: 100%;
+  background-color: #cdcdcd;
+  text-align: center;
+  
+  .text-muted {
+     padding: 20px;
+  }
 }
 
 .btn {
