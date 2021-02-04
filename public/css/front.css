@@ -1,5 +1,4 @@
 .top_image {
-  background-attachment: fixed;
   background-image: url(/images/top_image.jpg?729a7ec2167dc217b20d01cc9dbccdd8);
   background-position: center center;
   background-repeat: no-repeat;
@@ -10,7 +9,6 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-top: -13px;
   margin-bottom: 10px;
 }
 
@@ -80,9 +78,9 @@
 }
 
 .about p {
-  font-size: 11px;
-  letter-spacing: 3px;
-  line-height: 1.2em;
+  font-size: 13px;
+  letter-spacing: 1px;
+  line-height: 1.3em;
   margin: 0;
 }
 

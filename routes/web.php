@@ -37,14 +37,13 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/', 'Topcontroller@index')->name('top');
 
 //投稿
-
-   Route::get('post', 'PostController@post_index')->name('post');
-   Route::get('post/create', 'PostController@add');
-   Route::post('post/create', 'PostController@create');
-   Route::get('post/edit', 'PostController@edit');
-   Route::post('post/edit', 'PostController@update');
-   Route::get('post/delete', 'PostController@delete');
-   Route::resource('post', 'PostController', ['only' => ['post_index' ,'show']]);
+Route::get('post', 'PostController@post_index')->name('post');
+Route::get('post/create', 'PostController@add');
+Route::post('post/create', 'PostController@create');
+Route::get('post/edit', 'PostController@edit');
+Route::post('post/edit', 'PostController@update');
+Route::get('post/delete', 'PostController@delete');
+Route::resource('post', 'PostController', ['only' => ['post_index' ,'show']]);
 
 //マイページ
 Route::get('mypage', 'MypageController@add')->name('mypage');

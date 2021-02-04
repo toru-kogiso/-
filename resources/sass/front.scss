@@ -6,7 +6,6 @@ $ipad-width: 768px; //iPad以上の時
 }
 
 .top_image {
-  background-attachment: fixed;
   background-image: url('storage/image/top_image.jpg');
   background-position: center center;
   background-repeat: no-repeat;
@@ -17,7 +16,6 @@ $ipad-width: 768px; //iPad以上の時
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-top: -13px;
   @include media-query($ipad-width){
     margin-top: 0;
   }
@@ -78,12 +76,12 @@ $ipad-width: 768px; //iPad以上の時
 }
 
 .about p{
-  font-size: 11px;
+  font-size: 13px;
   @include media-query($ipad-width){
     font-size: 20px;
   }
-  letter-spacing: 3px;
-  line-height: 1.2em;
+  letter-spacing: 1px;
+  line-height: 1.3em;
   margin: 0;
 }
 
