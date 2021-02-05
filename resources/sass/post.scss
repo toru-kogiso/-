@@ -61,16 +61,17 @@ input[type=submit] {
 .card {
   background: #fff;
   width: 100%; 
-  @include media-query($ipad-width){
-    width: 32%;//3分割
-  }
   border: none;
   margin-bottom: 2%;
   @include media-query($ipad-width){
-    margin-right: 1%;
-    &:last-child { //最後のカードだけ0に
+    width: 31.3%;//3分割
+    margin-right: 3%;
+    &:nth-child(3n) { //3枚目のカードだけ0に
     margin-right: 0;
-  }
+    }
+    &:nth-child(3n+1) {
+      margin-right: 3%;
+    }
   }
 }
 
@@ -112,7 +113,7 @@ input[type=submit] {
 	margin: 0 auto;
 }
 
-.no_image {
+.no_image1 {
     background-image: url('storage/image/no_image.jpg');
     background-position: center center;
     background-repeat: no-repeat;

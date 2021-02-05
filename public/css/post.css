@@ -69,17 +69,16 @@ input[type=submit] {
 
 @media screen and (min-width: 768px) {
   .card {
-    width: 32%;
-  }
-}
-
-@media screen and (min-width: 768px) {
-  .card {
-    margin-right: 1%;
+    width: 31.3%;
+    margin-right: 3%;
   }
 
-  .card:last-child {
+  .card:nth-child(3n) {
     margin-right: 0;
+  }
+
+  .card:nth-child(3n+1) {
+    margin-right: 3%;
   }
 }
 
@@ -118,7 +117,7 @@ input[type=submit] {
   margin: 0 auto;
 }
 
-.no_image {
+.no_image1 {
   background-image: url(/images/no_image.jpg?197d3fc5a95de1c17f2f2606c9e43a85);
   background-position: center center;
   background-repeat: no-repeat;
@@ -130,7 +129,7 @@ input[type=submit] {
   width: 100%;
 }
 
-.no_image .caption {
+.no_image1 .caption {
   text-align: center;
   width: inherit;
   font-size: 25px;

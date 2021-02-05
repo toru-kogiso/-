@@ -62,7 +62,7 @@ button:hover {
     margin: 10px 0 0 auto;
 }
 
-.no_image {
+.no_image2 {
     background-image: url('storage/image/no_image.jpg');
     background-position: center center;
     background-repeat: no-repeat;
@@ -70,12 +70,12 @@ button:hover {
     position: absolute;
     top: 50px;
     left: 0px;
-    height: 300px;
+    height: 0;//文字のみ表示
     width: 100%;
     .caption {
       text-align: center;
       width: inherit;
-      font-size: 25px;
+      font-size: 23px;
       position: absolute;
       top: 82%;
       left: 50%;

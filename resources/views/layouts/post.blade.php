@@ -24,14 +24,13 @@
         <div id="app">
             {{-- ナビゲーションバー --}}
             @include('navbar')
-
-            <main class="mb-3">
+            <main class="wrapper mb-3">
                 {{-- コンテンツをここに入れるため、@yieldで空けておきます。 --}}
                 @yield('content')
             </main>
             <footer>
                 <div class="container">
-                   <p class="text-center text-muted ">MusicFans by Toru.</p>
+                   <p class="text-muted ">MusicFans by Toru.</p>
                 </div>
             </footer>
         </div>

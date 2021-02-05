@@ -46,7 +46,7 @@ Route::get('post/delete', 'PostController@delete');
 Route::resource('post', 'PostController', ['only' => ['post_index' ,'show']]);
 
 //マイページ
-Route::get('mypage', 'MypageController@add')->name('mypage');
+Route::get('mypage', 'MypageController@mypage_index')->name('mypage');
 
 //問い合わせフォーム
 Route::get('form/create', 'FormController@add')->name('form');

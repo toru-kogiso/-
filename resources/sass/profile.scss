@@ -1,40 +1,18 @@
-body {
-  background-repeat: no-repeat;
-  background-position: center;
-  background-color: #000;
-  color: #fff;
+$ipad-width: 768px; //iPad以上の時
+@mixin media-query($device) {
+  @media screen and (min-width: $device) {
+      @content;
+  }
 }
 
-.navbar-laravel {
-  background-color: #000;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
+.page-title {
+  font-family: "Times New Roman", serif;
+  font-size: 20px;
+  @include media-query($ipad-width){
+    font-size: 40px;
+    text-align: center;
+  }
+  margin-left: 10px;
+  letter-spacing: 3px;
 }
 
-.navbar-brand {
-  color: #fff !important;
-}
-
-.nav-link {
-  color: #fff !important;
-}
-
-.table-dark {
-  color: #fff;
-}
-
-.list-group-item {
-  border-color: #fff;
-  background-color: #000;
-}
-
-.login-box {
-  background-color: rgba(0, 0, 0, 0);
-}
-
-.login-header {
-  background-color: rgba(0, 0, 0, 0.25)
-}
-
-.login-body {
-  background-color: rgba(0, 0, 0, 0.25);
-} 

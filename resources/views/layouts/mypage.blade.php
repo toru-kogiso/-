@@ -17,6 +17,7 @@
         <!-- Styles -->
         <link href="{{ secure_asset('css/base.css') }}" rel="stylesheet">
         <link href="{{ secure_asset('css/app.css') }}" rel="stylesheet">
+        <link href="{{ secure_asset('css/profile.css') }}" rel="stylesheet">
     </head>
     <body>
         <div id="app">
@@ -24,13 +25,13 @@
             @include('navbar')
             {{-- ここまでナビゲーションバー --}}
 
-            <main class="mb-3">
+            <main class="wrapper mb-3">
                 {{-- コンテンツをここに入れるため、@yieldで空けておきます。 --}}
                 @yield('content')
             </main>
             <footer>
                 <div class="container">
-                   <p class="text-center text-muted ">MusicFans by Toru.</p>
+                   <p class="text-muted ">MusicFans by Toru.</p>
                 </div>
             </footer>
         </div>

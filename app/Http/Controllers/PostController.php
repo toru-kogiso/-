@@ -33,10 +33,8 @@ class PostController extends Controller
             $posts = Post::all();
         }
         
-         //作成順に並び替え
+         //作成順に並び替え(1ページ9投稿)
         $posts = Post::orderBy('created_at', 'DESC')->paginate(9); //投稿順表示
-        
-        //$posts = Post::paginate(9);//1ページ9投稿表示
         
         return view('post.post_index', ['posts' => $posts, 'cond_title' => $cond_title,]);
     }

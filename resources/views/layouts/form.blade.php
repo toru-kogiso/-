@@ -25,7 +25,7 @@
             @include('navbar')
             {{-- ここまでナビゲーションバー --}}
 
-            <main class="mb-3">
+            <main class="wrapper mb-3">
                 {{-- コンテンツをここに入れるため、@yieldで空けておきます。 --}}
                 @yield('content')
             </main>

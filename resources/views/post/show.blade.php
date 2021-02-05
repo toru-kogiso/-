@@ -20,7 +20,7 @@
             @if ($post->image_path)
                 <img class="photo" src="{{ $post->image_path }}"　alt="投稿画像">
             @else
-                <div class="no_image"><p class="caption">この投稿に画像はありません</p></div>
+                <div class="no_image2"><p class="caption">この投稿に画像はありません</p></div>
             @endif       
         </div>
     </div>    

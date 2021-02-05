@@ -78,13 +78,6 @@ a {
   text-decoration: none;
 }
 
-#app {
-  min-height: 100vh;
-  position: relative;
-  box-sizing: border-box;
-  overflow: hidden;
-}
-
 html {
   height: 100%;
 }
@@ -94,6 +87,18 @@ body {
   display: flex;
   flex-direction: column;
   color: #000;
+}
+
+#app {
+  min-height: 100vh;
+  position: relative;
+  box-sizing: border-box;
+  overflow: hidden;
+  padding-bottom: 80px;
+}
+
+.navbar {
+  height: 64px;
 }
 
 .nav-item {
@@ -106,20 +111,26 @@ body {
   letter-spacing: 0.05em;
 }
 
-.mb-3 {
-  padding-top: 77px;
+.dropdown-menu {
+  background-color: unset;
+  width: auto;
+}
+
+.wrapper {
+  padding-top: 64px;
 }
 
 footer {
-  position: relative;
-  bottom: 0;
   width: 100%;
   background-color: #cdcdcd;
-  text-align: center;
+  position: absolute;
+  bottom: 0;
 }
 
 footer .text-muted {
-  padding: 20px;
+  text-align: center;
+  padding: 20px 0;
+  margin: 0;
 }
 
 .btn {

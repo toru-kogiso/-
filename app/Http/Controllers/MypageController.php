@@ -2,8 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\HTML;
+use App\Post;
+use App\User;
 
 class MypageController extends Controller
 {
@@ -12,8 +15,10 @@ class MypageController extends Controller
         $this->middleware('auth');
     }
     
-    public function add()
+    public function mypage_index()
     {
+        $user = \Auth::user();
+        
         return view ('mypage.mypage_index');
     }
 }
