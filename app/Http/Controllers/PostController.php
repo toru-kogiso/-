@@ -44,8 +44,8 @@ class PostController extends Controller
       $this->validate($request, Post::$rules);
       
       $posts = new Post;
-      //ユーザー情報取得
-      $user = \Auth::user();
+      
+      $user = \Auth::user();//ユーザー情報取得
      
       $form = $request->all();
       // formに画像があれば、保存する

@@ -15,6 +15,7 @@
         <link href="https://fonts.googleapis.com/css?family=Raleway:300,400,600" rel="stylesheet" type="text/css">
         
         <!-- Styles -->
+        <link href="{{ secure_asset('css/base.css') }}" rel="stylesheet">
         <link href="{{ secure_asset('css/app.css') }}" rel="stylesheet">
         <link href="{{ secure_asset('css/profile.css') }}" rel="stylesheet">
     </head>
@@ -22,11 +23,15 @@
         <div id="app">
             {{-- ナビゲーションバー --}}
             @include('navbar')
-            {{-- ここまでナビゲーションバー --}}
-
-            <main class="py-4">
+            <main class="wrapper mb-3">
                 {{-- コンテンツをここに入れるため、@yieldで空けておきます。 --}}
                 @yield('content')
             </main>
+            <footer>
+                <div class="container">
+                   <p class="text-muted ">MusicFans by Toru.</p>
+                </div>
+            </footer>
         </div>
     </body>
+</html>    

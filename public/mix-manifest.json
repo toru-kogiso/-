@@ -2,10 +2,10 @@
     "/js/app.js": "/js/app.js",
     "/css/app.css": "/css/app.css",
     "/css/admin.css": "/css/admin.css",
+    "/css/profile.css": "/css/profile.css",
     "/css/front.css": "/css/front.css",
     "/css/show.css": "/css/show.css",
     "/css/kadai.css": "/css/kadai.css",
     "/css/base.css": "/css/base.css",
-    "/css/post.css": "/css/post.css",
-    "/css/profile.css": "/css/profile.css"
+    "/css/post.css": "/css/post.css"
 }

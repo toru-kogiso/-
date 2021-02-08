@@ -28,7 +28,7 @@
                     </div>
                     </a>
                     <div class="card-body">
-                        <h4 class="card-title">{{ $post->title }}</h4>
+                        <h2 class="card-title">{{ $post->title }}</h2>
                         <hr>
                         <p class="card-text">{!! nl2br(e($post->body)) !!} </p>
                         <p class="card-date">{{ $post->created_at->format('Y年m月d日') }}</p>

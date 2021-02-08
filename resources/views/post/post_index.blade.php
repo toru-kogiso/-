@@ -35,10 +35,18 @@
                         </div>
                         </a>
                         <div class="card-body">
-                            <h4 class="card-title">{{ $post->title }}</h4>
+                            <h2 class="card-title">{{ $post->title }}</h2>
                             <hr>
                             <p class="card-text">{!! nl2br(e($post->body)) !!} </p>
-                            <p class="card-date">{{ $post->created_at->format('Y年m月d日') }}/@guest 匿名(ログイン後表示) @else {{$post->user_name }}さん@endguest</p>
+                            <p class="card-date">{{ $post->created_at->format('Y年m月d日') }} /
+                                <a href="{{ action('UserController@show', $post->user_id) }}">
+                                    @guest 匿名(ログイン後表示)
+                                        
+                                    @else {{$post->user_name }}さん
+                                       
+                                    @endguest
+                                </a>
+                            </p>
                             <p class="likes">いいね{{ $post->likes_count }}</p>
                             <p class="btn-group">{{-- 自分の投稿だったら編集・削除できる --}}
                                 @if (Auth::check())

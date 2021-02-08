@@ -30,6 +30,11 @@ Route::group(['prefix' => 'admin', 'middleware' =>'auth'], function() {
     Route::post('profile/create', 'Admin\ProfileController@create');
     Route::post('profile/edit', 'Admin\ProfileController@update');
 });
+
+//練習用課題ページ
+Route::get('kadai', 'KadaiController@kadai_index')->name('kadai');
+Route::get('kadai/create', 'KadaiController@add');
+Route::post('kadai/create', 'KadaiController@create');
 */
 Auth::routes();
 
@@ -46,7 +51,15 @@ Route::get('post/delete', 'PostController@delete');
 Route::resource('post', 'PostController', ['only' => ['post_index' ,'show']]);
 
 //マイページ
-Route::get('mypage', 'MypageController@mypage_index')->name('mypage');
+Route::get('user', 'UserController@user_index')->name('mypage');
+Route::get('user/edit', 'UserController@edit');
+Route::post('user/edit', 'UserController@update');
+Route::get('/user/{user}', 'UserController@show');
+//プロフィール
+Route::get('profile/create', 'ProfileController@add');
+Route::get('profile/edit', 'ProfileController@edit');
+Route::post('profile/create', 'ProfileController@create');
+Route::post('profile/edit', 'ProfileController@update');
 
 //問い合わせフォーム
 Route::get('form/create', 'FormController@add')->name('form');
@@ -55,8 +68,3 @@ Route::post('form/create', 'FormController@create');
 //いいね
 Route::post('/post/{post}/likes', 'LikesController@store');
 Route::post('/post/{post}/likes/{like}', 'LikesController@destroy');
-
-//練習用課題ページ
-Route::get('kadai', 'KadaiController@kadai_index')->name('kadai');
-Route::get('kadai/create', 'KadaiController@add');
-Route::post('kadai/create', 'KadaiController@create');

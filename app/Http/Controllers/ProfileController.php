@@ -5,10 +5,15 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Profile;
+use App\User;
 
 class ProfileController extends Controller
 {
-    //
+    public function __construct()
+    {
+        $this->middleware('auth')->except(['user_index']);
+    }
+    
     public function add()
   {
     return view('profile.create');
@@ -25,7 +30,7 @@ class ProfileController extends Controller
     $profiles->fill($form);
     $profiles->save();
     
-    return redirect('/');
+    return view('mypage');
   }
 
     public function edit(Request $request)
