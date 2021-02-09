@@ -19,8 +19,9 @@
             </div>
             <div class="col-md-4">
                 <a href="{{ action('PostController@add') }}" role="button" class="btn btn-dark order1">新規作成</a>
-          </div>
+            </div>
         </div>
+        
         <div class="row">
             <div class="content">
                 @foreach($posts as $post)
@@ -39,10 +40,10 @@
                             <hr>
                             <p class="card-text">{!! nl2br(e($post->body)) !!} </p>
                             <p class="card-date">{{ $post->created_at->format('Y年m月d日') }} /
-                                <a href="{{ action('UserController@show', $post->user_id) }}">
+                                <a href="{{ action('UserController@show', $post->user_id) }}" class="name">
                                     @guest 匿名(ログイン後表示)
                                         
-                                    @else {{$post->user_name }}さん
+                                    @else {{$post->user->user_name }}さん
                                        
                                     @endguest
                                 </a>
@@ -60,6 +61,7 @@
                     </div>
                 @endforeach
             </div>
+            
             <div class="paginate">{{ $posts->links() }}</div>
         </div>
     </div>

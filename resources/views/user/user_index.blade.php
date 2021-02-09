@@ -16,14 +16,14 @@
                         <label for="name">ユーザー名</label>
                         <p>{{ $user->user_name }}</p>
                     </div>
-                    @if ($user->profile_id)
+                    
                         <div class="form-group">
                             <label for="gender">性別</label>
-                            <p>{{ $profile->gender }}</p>
+                            <p>{{ $profile->artist }}</p>
                         </div>
-                    @else
+                    
                         <a href="{{ action('ProfileController@create') }}" class="btn btn-dark">プロフィール作成</a>
-                    @endif
+                    
                     
                     @if (Auth::check())
                         @if( ( $user->id ) === ( Auth::user()->id ) ) 

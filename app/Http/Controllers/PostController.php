@@ -26,17 +26,18 @@ class PostController extends Controller
     
     public function post_index(Request $request)
     {
-        $cond_title = $request->cond_title;
-        if ($cond_title != '') {
-            $posts= Post::where('title', $cond_title)->get();//検索された検索結果を取得する
-        } else {
-            $posts = Post::all();
-        }
-        
          //作成順に並び替え(1ページ9投稿)
         $posts = Post::orderBy('created_at', 'DESC')->paginate(9); //投稿順表示
         
-        return view('post.post_index', ['posts' => $posts, 'cond_title' => $cond_title,]);
+        $cond_title = $request->cond_title;
+        
+        if ($cond_title != '') {
+            $posts= Post::where('title', $cond_title)->latest()->paginate(9);//検索された検索結果を取得する
+        } else {
+            $posts = Post::orderBy('created_at', 'DESC')->paginate(9);
+        }
+        
+        return view('post.post_index', ['posts' => $posts, 'cond_title' => $cond_title]);
     }
     
     public function create(Request $request)

@@ -113,6 +113,11 @@ input[type=submit] {
   -webkit-line-clamp: 3;
 }
 
+.name {
+  font-size: 18px;
+  font-weight: bold;
+}
+
 .paginate {
   margin: 0 auto;
 }

@@ -20,7 +20,9 @@ class UserController extends Controller
     {
         $user = Auth::user();//userデータ取得
         $posts = Post::find($request->user_id);//postデータ取得
-        $profile = Profile::find($request->user_id);//profileデータ取得
+        $profile = Profile::all();//profileデータ取得
+        
+        
         
         return view ('user.user_index',['user' => $user, 'posts' => $posts, 'profile' => $profile]);
     }
