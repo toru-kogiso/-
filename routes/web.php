@@ -57,9 +57,9 @@ Route::post('user/edit', 'UserController@update');
 Route::get('/user/{user}', 'UserController@show');
 //プロフィール
 Route::get('profile/create', 'ProfileController@add');
-Route::get('profile/edit', 'ProfileController@edit');
 Route::post('profile/create', 'ProfileController@create');
 Route::post('profile/edit', 'ProfileController@update');
+Route::get('profile/edit', 'ProfileController@edit');
 
 //問い合わせフォーム
 Route::get('form/create', 'FormController@add')->name('form');

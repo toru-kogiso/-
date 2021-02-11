@@ -12,24 +12,34 @@
             <div class="card">
                 <div class="card-header">ユーザー登録情報</div>
                 <div class="card-body">
+                    <div class="form-group item">
+                        <label for="name">ユーザー名/{{ $user->user_name }}</label>
+                        @if (Auth::check())
+                            @if( ( $user->id ) === ( Auth::user()->id ) ) 
+                                <a href="{{ action('UserController@edit') }}" class="btn btn-dark">編集</a>
+                            @endif
+                        @endif
+                    </div>
+                    {{-- ここからProfile --}}
+                    <div class="form-group item">
+                        <label for="gender">性別/{{ $user->profiles->gender}}</label>
+                    </div>
+                    <div class="form-group item">
+                        <label for="gender">年齢/{{ $user->profiles->generation}}</label>
+                        
+                    </div>
                     <div class="form-group">
-                        <label for="name">ユーザー名</label>
-                        <p>{{ $user->user_name }}</p>
+                        <label for="gender">好きなアーティスト</label>
+                        <p>{{ $user->profiles->artist}}</p>
+                    </div>
+                    <div class="form-group">
+                        <label for="gender">自己紹介</label>
+                        <p>{{ $user->profiles->introduction}}</p>
                     </div>
                     
-                        <div class="form-group">
-                            <label for="gender">性別</label>
-                            <p>{{ $profile->artist }}</p>
-                        </div>
+                    <a href="{{ action('ProfileController@edit') }}" class="btn btn-dark">プロフィール編集</a>
+                    <a href="{{ action('ProfileController@create') }}" class="btn btn-dark">プロフィール作成</a>
                     
-                        <a href="{{ action('ProfileController@create') }}" class="btn btn-dark">プロフィール作成</a>
-                    
-                    
-                    @if (Auth::check())
-                        @if( ( $user->id ) === ( Auth::user()->id ) ) 
-                            <a href="{{ action('UserController@edit') }}" class="btn btn-dark">編集</a>
-                        @endif
-                    @endif
                 </div>
             </div>
         </div>

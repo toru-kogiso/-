@@ -19,12 +19,8 @@ class UserController extends Controller
     public function user_index(Request $request)
     {
         $user = Auth::user();//userデータ取得
-        $posts = Post::find($request->user_id);//postデータ取得
-        $profile = Profile::all();//profileデータ取得
-        
-        
-        
-        return view ('user.user_index',['user' => $user, 'posts' => $posts, 'profile' => $profile]);
+    
+        return view ('user.user_index',['user' => $user]);
     }
     
     public function edit() {
@@ -41,6 +37,7 @@ class UserController extends Controller
         unset($user_form['_token']);
         //保存
         $user->fill($user_form)->save();
+        
         
         return redirect('user');
     }

@@ -3,10 +3,19 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Auth;
 
 class Profile extends Model
 {
-    public $guarded = array('id');
+    protected $table = 'profiles';
+    
+    protected $fillable = [
+        'user_id',
+        'gender',
+        'generation',
+        'artist',
+        'introduction'
+        ];
     
     public static $rules = array(
         'gender' => 'required',
@@ -17,6 +26,6 @@ class Profile extends Model
     
     public function user()
     {
-        return $this->belongsTo('App\User');
+        return $this->belongsTo(User::class);
     }
 }

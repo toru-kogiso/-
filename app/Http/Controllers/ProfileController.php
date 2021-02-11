@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Profile;
@@ -18,41 +19,49 @@ class ProfileController extends Controller
   {
     return view('profile.create');
   }
-
+  
     public function create(Request $request)
   {
     $this->validate($request, Profile::$rules);
     $profiles = new Profile;
+    
+    $user = \Auth::user();//ユーザー情報取得
+    
     $form = $request->all();
     
     unset($form['_token']);
     
+    $profiles->user_id = $user->id;
+    
     $profiles->fill($form);
     $profiles->save();
     
-    return view('mypage');
+    return redirect('user');
   }
 
     public function edit(Request $request)
   {
-    $profiles = Profile::find($request->id);
-    if (empty($profiles)) {
-        about(404);
+    $profile = Profile::find($request->user_id);
+    $user = Auth::user();
+    $profile = $user->id;
+    if (empty($profile)) {
+        abort(404);
     }
-    return view('profile.edit', ['profiles_form' => $profiles]);
+    return view('profile.edit', ['profile_form' => $profile, 'user' => $user]);
   }
 
     public function update(Request $request)
   {
     $this->validate($request, Profile::$rules);
-    $profiles = Profile::find($request->id);
+    
+    $profile = Profile::find($request->id);
     $profiles_form = $request->all();
     
     unset($profiles_form['_token']);
     
-    $profiles->fill($profiles_form)->save();
+    $profile->fill($profiles_form)->save();
     
-    return view('profile.edit');
+    return redirect('user');
   }
-
+  
 }

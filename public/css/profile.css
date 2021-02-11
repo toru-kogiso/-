@@ -11,3 +11,13 @@
   }
 }
 
+.item {
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid;
+}
+
+.item .btn {
+  margin: 0 0 0 auto;
+}
+

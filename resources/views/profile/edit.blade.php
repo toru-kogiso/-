@@ -1,13 +1,13 @@
 @extends('layouts.profile')
 
-@section('title', 'プロフィール登録')
+@section('title', 'プロフィール編集')
 
 @section('content')
     <div class="container"> 
         <div class="row">
-            <h1 class="page-title col-md-12">プロフィール作成</h1>
+            <h1 class="page-title col-md-12">プロフィール編集</h1>
         </div>
-        <form action="{{ action('ProfileController@create') }}" method="post" enctype="multipart/form-data">
+        <form action="{{ action('ProfileController@update') }}" method="post" enctype="multipart/form-data">
             @if (count($errors) > 0)
                <ul>
                     @foreach($errors->all() as $e)
@@ -57,18 +57,23 @@
             <div class="form-group row">
                 <label class="col-md-6">好きなアーティスト</label>
                 <div class="col-md-9">
-                    <input type="text" class="form-control" name="artist" value="{{ old('artist') }}">
+                    <input type="text" class="form-control" name="artist" value="{{ $user->profiles->artist }}">
                 </div>
             </div>
           
             <div class="form-group row">
                 <label class="col-md-6">自己紹介</label>
                 <div class="col-md-9">
-                    <textarea class="form-control" name="introduction" rows="10">{{ old('introduction') }}</textarea>
+                    <input type="text" class="form-control" name="introduction" value="{{ $user->profiles->introduction }}">
                 </div>
             </div>
-            {{ csrf_field() }}
-            <input type="submit" class="btn btn-dark" value="登録">
+            <div class="form-group row">
+                <div class="col-md-10">
+                    <input type="hidden" name="id" value="{{ $user->profiles->id }}">
+                    {{ csrf_field() }}
+                    <input type="submit" class="btn btn-dark" value="更新">
+                </div>
+            </div>
         </form>   
     </div>
 @endsection   
