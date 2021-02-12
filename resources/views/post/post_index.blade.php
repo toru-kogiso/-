@@ -61,7 +61,7 @@
                     </div>
                 @endforeach
             </div>
-            
+            <!--投稿一覧ここまで-->
             <div class="paginate">{{ $posts->links() }}</div>
         </div>
     </div>

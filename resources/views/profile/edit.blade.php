@@ -57,14 +57,14 @@
             <div class="form-group row">
                 <label class="col-md-6">好きなアーティスト</label>
                 <div class="col-md-9">
-                    <input type="text" class="form-control" name="artist" value="{{ $user->profiles->artist }}">
+                    <textarea class="form-control" name="artist" rows="3">{{ $user->profiles->artist }}</textarea>
                 </div>
             </div>
           
             <div class="form-group row">
                 <label class="col-md-6">自己紹介</label>
                 <div class="col-md-9">
-                    <input type="text" class="form-control" name="introduction" value="{{ $user->profiles->introduction }}">
+                    <textarea class="form-control" name="introduction" rows="10">{{ $user->profiles->introduction }}</textarea>
                 </div>
             </div>
             <div class="form-group row">

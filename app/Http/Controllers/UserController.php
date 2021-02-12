@@ -19,8 +19,10 @@ class UserController extends Controller
     public function user_index(Request $request)
     {
         $user = Auth::user();//userデータ取得
-    
-        return view ('user.user_index',['user' => $user]);
+        
+        $posts = Post::where('user_id', $user->id)->orderBy('created_at', 'DESC')->paginate(9);
+        
+        return view ('user.user_index',['user' => $user, 'posts' => $posts]);
     }
     
     public function edit() {
@@ -38,13 +40,14 @@ class UserController extends Controller
         //保存
         $user->fill($user_form)->save();
         
-        
         return redirect('user');
     }
     
     public function show($id) {
         $user = User::find($id);
         
-        return view('user.show', ['user' => $user]);
+        $posts = Post::where('user_id', $user->id)->orderBy('created_at', 'DESC')->paginate(9);
+        
+        return view('user.show', ['user' => $user, 'posts' => $posts]);
     }
 }

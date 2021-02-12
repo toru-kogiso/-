@@ -57,7 +57,7 @@
             <div class="form-group row">
                 <label class="col-md-6">好きなアーティスト</label>
                 <div class="col-md-9">
-                    <input type="text" class="form-control" name="artist" value="{{ old('artist') }}">
+                    <textarea class="form-control" name="artist" rows="5">{{ old('artist') }}</textarea>
                 </div>
             </div>
           
