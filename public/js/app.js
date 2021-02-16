@@ -49712,6 +49712,17 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./resources/sass/form.scss":
+/*!**********************************!*\
+  !*** ./resources/sass/form.scss ***!
+  \**********************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+
 /***/ "./resources/sass/front.scss":
 /*!***********************************!*\
   !*** ./resources/sass/front.scss ***!
@@ -49768,9 +49779,9 @@ __webpack_require__.r(__webpack_exports__);
 /***/ }),
 
 /***/ 0:
-/*!****************************************************************************************************************************************************************************************************************************************************************!*\
-  !*** multi ./resources/js/app.js ./resources/sass/app.scss ./resources/sass/admin.scss ./resources/sass/profile.scss ./resources/sass/front.scss ./resources/sass/show.scss ./resources/sass/kadai.scss ./resources/sass/base.scss ./resources/sass/post.scss ***!
-  \****************************************************************************************************************************************************************************************************************************************************************/
+/*!*******************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** multi ./resources/js/app.js ./resources/sass/app.scss ./resources/sass/admin.scss ./resources/sass/profile.scss ./resources/sass/front.scss ./resources/sass/show.scss ./resources/sass/kadai.scss ./resources/sass/base.scss ./resources/sass/post.scss ./resources/sass/form.scss ***!
+  \*******************************************************************************************************************************************************************************************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -49782,7 +49793,8 @@ __webpack_require__(/*! /home/ec2-user/environment/musicfans/resources/sass/fron
 __webpack_require__(/*! /home/ec2-user/environment/musicfans/resources/sass/show.scss */"./resources/sass/show.scss");
 __webpack_require__(/*! /home/ec2-user/environment/musicfans/resources/sass/kadai.scss */"./resources/sass/kadai.scss");
 __webpack_require__(/*! /home/ec2-user/environment/musicfans/resources/sass/base.scss */"./resources/sass/base.scss");
-module.exports = __webpack_require__(/*! /home/ec2-user/environment/musicfans/resources/sass/post.scss */"./resources/sass/post.scss");
+__webpack_require__(/*! /home/ec2-user/environment/musicfans/resources/sass/post.scss */"./resources/sass/post.scss");
+module.exports = __webpack_require__(/*! /home/ec2-user/environment/musicfans/resources/sass/form.scss */"./resources/sass/form.scss");
 
 
 /***/ })

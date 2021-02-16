@@ -28,18 +28,22 @@
                                 <label for="gender">性別</label>
                                 <p>{{ $user->profiles->gender}}</p>
                             </div>
+                            
                             <div class="form-group item">
                                 <label for="gender">年齢</label>
                                 <p>{{ $user->profiles->generation}}</p>
                             </div>
+                            
                             <div class="form-group text">
                                 <label for="gender" class="title">好きなアーティスト</label>
                                 <p>{!! nl2br(e($user->profiles->artist)) !!}</p>
                             </div>
+                            
                             <div class="form-group text">
                                 <label for="gender" class="title">自己紹介</label>
                                 <p>{!! nl2br(e($user->profiles->introduction)) !!}</p>
                             </div>
+                            
                             <a href="{{ action('ProfileController@edit') }}" class="btn btn-dark">プロフィール編集</a>
                         
                         @else <a href="{{ action('ProfileController@create') }}" class="btn btn-dark">プロフィール作成</a>

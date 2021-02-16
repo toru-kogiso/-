@@ -19,4 +19,5 @@ mix.js('resources/js/app.js', 'public/js')
     .sass('resources/sass/show.scss', 'public/css')
     .sass('resources/sass/kadai.scss', 'public/css')
     .sass('resources/sass/base.scss', 'public/css')
-    .sass('resources/sass/post.scss', 'public/css');
+    .sass('resources/sass/post.scss', 'public/css')
+    .sass('resources/sass/form.scss', 'public/css');

@@ -62,8 +62,9 @@ Route::post('profile/edit', 'ProfileController@update');
 Route::get('profile/edit', 'ProfileController@edit');
 
 //問い合わせフォーム
-Route::get('form/create', 'FormController@add')->name('form');
-Route::post('form/create', 'FormController@create');
+Route::get('/contact', 'FormController@index')->name('contact');//入力
+Route::post('/contact/confirm', 'FormController@confirm');//確認
+Route::post('/contact/thanks', 'FormController@send');//送信
 
 //いいね
 Route::post('/post/{post}/likes', 'LikesController@store');

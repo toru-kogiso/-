@@ -1,0 +1,44 @@
+$ipad-width: 768px; //iPad以上の時
+@mixin media-query($device) {
+  @media screen and (min-width: $device) {
+      @content;
+  }
+}
+
+.page-title {
+  font-family: "Times New Roman", serif;
+  font-size: 20px;
+  @include media-query($ipad-width){
+    font-size: 40px;
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  margin: 0;
+  letter-spacing: 3px;
+}
+
+.form_card {
+    border: 1px groove;
+    border-radius: 3px;
+    margin-bottom: 10px;
+    letter-spacing: 0.5px;
+}
+
+.card-header {
+  font-size: 18px;
+}
+
+label {
+  font-size: 16px;
+  margin: 0;
+}
+
+.confirm {
+    align-items: center;
+    margin-bottom: 10px;
+    border-bottom: 1px groove;
+    p {
+    font-size: 16px;
+    margin: 0 auto;
+  }
+}

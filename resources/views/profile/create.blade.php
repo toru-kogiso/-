@@ -10,8 +10,8 @@
         <form action="{{ action('ProfileController@create') }}" method="post" enctype="multipart/form-data">
             @if (count($errors) > 0)
                <ul>
-                    @foreach($errors->all() as $e)
-                       <li>{{ $e }}</li>
+                    @foreach($errors->all() as $error)
+                       <li>{{ $error }}</li>
                     @endforeach    
                </ul>
             @endif

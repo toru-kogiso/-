@@ -17,7 +17,8 @@
         <!-- Styles -->
         <link href="{{ secure_asset('css/base.css') }}" rel="stylesheet">
         <link href="{{ secure_asset('css/app.css') }}" rel="stylesheet">
-
+        <link href="{{ secure_asset('css/form.css') }}" rel="stylesheet">
+        
     </head>
     <body>
         <div id="app">
@@ -36,4 +37,4 @@
             </footer>
         </div>
     </body>
-   </html>
+</html>

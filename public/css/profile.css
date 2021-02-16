@@ -20,6 +20,11 @@ label {
   border-bottom: 1px groove;
 }
 
+.user_card {
+  border: 1px groove;
+  border-radius: 3px;
+}
+
 .card-header {
   font-size: 18px;
 }

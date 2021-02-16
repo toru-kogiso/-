@@ -23,7 +23,7 @@
                     </li>
                     @endauth
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ route('form') }}">お問合せ</a>
+                        <a class="nav-link" href="{{ route('contact') }}">お問い合せ</a>
                     </li>
                 </ul>
             </div>
