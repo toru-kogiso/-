@@ -13,23 +13,29 @@
                 <div class="card-header">ユーザー情報</div>
                 <div class="card-body">
                     <div class="form-group item">
-                       <label for="name">ユーザー名/{{ $user->user_name }}</label>
+                       <label for="name">ユーザー名</label>
+                       <p>{{ $user->user_name }}</p>
                     </div>
-                    <div class="form-group item">
-                        <label for="gender">性別/{{ $user->profiles->gender}}</label>
-                    </div>
-                    <div class="form-group item">
-                        <label for="gender">年齢/{{ $user->profiles->generation}}</label>
-                        
-                    </div>
-                    <div class="form-group text">
-                        <label for="gender" class="title">好きなアーティスト</label>
-                        <p>{{ $user->profiles->artist}}</p>
-                    </div>
-                    <div class="form-group text">
-                        <label for="gender" class="title">自己紹介</label>
-                        <p>{!! nl2br(e($user->profiles->introduction)) !!}</p>
-                    </div>
+                    <!--ここからprofile-->
+                    @if ( $user->profiles )
+                        <div class="form-group item">
+                            <label for="gender">性別</label>
+                            <p>{{ $user->profiles->gender}}</p>
+                        </div>
+                        <div class="form-group item">
+                            <label for="gender">年齢</label>
+                            <p>{{ $user->profiles->generation}}</p>
+                        </div>
+                        <div class="form-group text">
+                            <label for="gender" class="title">好きなアーティスト</label>
+                            <p>{!! nl2br(e($user->profiles->artist)) !!}</p>
+                        </div>
+                        <div class="form-group text">
+                            <label for="gender" class="title">自己紹介</label>
+                            <p>{!! nl2br(e($user->profiles->introduction)) !!}</p>
+                        </div>
+                    @else <p>プロフィールが登録されていません</p>
+                    @endif
                 </div>
             </div>
         </div>
