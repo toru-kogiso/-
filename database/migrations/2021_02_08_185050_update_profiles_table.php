@@ -26,7 +26,7 @@ class UpdateProfilesTable extends Migration
     public function down()
     {
         Schema::table('profiles', function (Blueprint $table) {
-            $table->string('name');
+            $table->bigInteger('user_id');
         });
     }
 }
