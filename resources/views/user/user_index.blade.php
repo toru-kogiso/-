@@ -55,7 +55,10 @@
     </div>
     <!--ここまでプロフィール-->
     <div class="row">
-        <h2 class="page-title col-md-12">{{ $user->user_name }}さんの投稿一覧</h2>
+        <h2 class="page-title col-xs-10">投稿一覧</h2>
+        <div class="post col-xs-2">
+            <a href="{{ action('PostController@add') }}" role="button" class="btn btn-dark order1">新規投稿</a>
+        </div>
     </div>
     <div class="row">
         <div class="user_post">
