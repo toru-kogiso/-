@@ -22,12 +22,15 @@
     </head>
     <body>
         <div id="app">
-            {{-- ナビゲーションバー --}}
-            @include('navbar')
+            <header>
+                {{-- ナビゲーションバー --}}
+                @include('navbar')
+            </header>
+            
             <main class="wrapper mb-3">
-                {{-- コンテンツをここに入れるため、@yieldで空けておきます。 --}}
                 @yield('content')
             </main>
+            
             <footer>
                 <div class="container">
                    <p class="text-muted ">MusicFans by Toru.</p>

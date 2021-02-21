@@ -26,9 +26,11 @@
                 {{-- ナビゲーションバー --}}
                 @include('navbar')
             </header>
+            
             <main class="wrapper b-3">
                 @yield('content')
             </main>
+            
             <footer>
                 <div class="container">
                     <p class="text-muted">MusicFans by Toru.</p>
