@@ -69,3 +69,6 @@ Route::post('/contact/thanks', 'FormController@send');//送信
 //いいね
 Route::post('/post/{post}/likes', 'LikesController@store');
 Route::post('/post/{post}/likes/{like}', 'LikesController@destroy');
+
+//コメント
+Route::resource('comment', 'CommentsController', ['only' => ['store']]);

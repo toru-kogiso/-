@@ -153,7 +153,8 @@ return [
         'generation' => '年齢',
         'artist' => '好きなアーティスト',
         'introduction' => '自己紹介',
-        'email' => 'メールアドレス'
+        'email' => 'メールアドレス',
+        'comment' => 'コメント'
         ],
 
 ];

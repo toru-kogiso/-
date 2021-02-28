@@ -35,4 +35,9 @@ class Post extends Model
     {
       return Like::where('user_id', \Auth::user()->id)->first();
     }
+    
+    public function comments()
+    {
+        return $this->hasMany('App\Comment');
+    }
 }
