@@ -6,7 +6,7 @@
         <div class="container">
             <div class="row justify-content-center">
                 <div class="col-md-5">
-                    <div class="card">
+                    <div class="user_card">
                         <div class="card-header">ユーザー登録内容の変更</div>
                         <div class="card-body">
                             <form method="POST" action="{{ action('UserController@update') }}">

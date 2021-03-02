@@ -9,7 +9,7 @@
                 <!-- タイトル -->
                 <h2 class="post-title">{{ $post->title }}</h2>
                 <!-- 投稿情報 -->
-                <p>{{ $post->user_name }} / {{ $post->created_at->format('Y年m月d日') }}</p>
+                <p>{{ $post->user->user_name }} / {{ $post->created_at->format('Y年m月d日') }}</p>
                 <!-- 本文 -->
                 <div class="post-body">
                     {!! nl2br(e($post->body)) !!} <!-- 改行表示 -->
@@ -24,7 +24,7 @@
                 @endif       
             </div>
         </div>    
-        <div class="row">
+        <div class="btngl row">
             <!-- いいね・一覧に戻るボタン -->
             <div class="btn1">
                 <!-- いいねボタン -->
@@ -49,6 +49,55 @@
             <div class="btn2">
                 <a href="{{ action('PostController@post_index') }}" class="btn btn-dark">一覧に戻る</a>
             </div>
+        </div>
+        <!--コメント-->
+        <div class="row">
+            <h3 class="col-md-12">コメント</h3>
+            @forelse($post->comments as $comment)
+                <div class="comment col-md-8 border-top">
+                    <time class="text-secondary">
+                        {{ $comment->user_name }} / 
+                        {{ $comment->created_at->format('Y年m月d日 H:i') }}
+                    </time>
+                    <p class="mt-2">
+                        {!! nl2br(e($comment->comment)) !!}
+                    </p>
+                    <p class="btn-group">{{-- 自分のコメントだったら編集・削除できる --}}
+                        @if (Auth::check())
+                            @if( ( $post->user_id ) === ( Auth::user()->id ) ) 
+                                <a href="{{ action('PostController@edit', ['id' => $post->id]) }}" class="btn btn-warning">編集</a>
+                                <a href="{{ action('PostController@delete', ['id' => $post->id]) }}" class="btn btn-danger">削除</a>
+                            @endif
+                        @endif
+                    </p>
+                </div>
+            @empty
+                <p>コメントはまだありません。</p>
+            @endforelse
+            
+            <form class="col-md-8" method="POST" action="{{ action('CommentsController@store') }}">
+                @csrf
+                <input name="post_id" type="hidden" value="{{ $post->id }}">
+                <div class="form-group">
+                    <label for="body">本文</label>
+                    <textarea id="comment" name="comment" class="form-control {{ $errors->has('comment') ? 'is-invalid' : '' }}" rows="4">{{ old('comment') }}</textarea>
+                        @if ($errors->has('comment'))
+                            <div class="invalid-feedback">
+                            {{ $errors->first('comment') }}
+                            </div>
+                        @endif
+                </div>
+                <div class="mt-4">
+                 <button type="submit" class="btn btn-primary">
+                 コメントする
+                 </button>
+                </div>
+            </form>
+            @if (session('commentstatus'))
+                <div class="alert alert-success mt-4 mb-4 col-md-8">
+                 {{ session('commentstatus') }}
+                </div>
+            @endif
         </div>
     </div>
 
