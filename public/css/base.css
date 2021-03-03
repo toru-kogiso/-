@@ -124,9 +124,15 @@ body {
   letter-spacing: 0.05em;
 }
 
+@media screen and (min-width: 768px) {
+  #Right-navbar {
+    right: 300px;
+  }
+}
+
 .dropdown-menu.rightnav {
   position: absolute;
-  top: 100%;
+  top: 90%;
   right: 30px;
   z-index: 1000;
   display: none;
@@ -143,6 +149,13 @@ body {
   background-color: #343a40;
   height: 40px;
   border: none;
+  padding-right: 15px;
+}
+
+@media screen and (min-width: 768px) {
+  .dropdown-menu.rightnav.show {
+    padding-right: 0;
+  }
 }
 
 a.dropdown-item.rightnav {
@@ -169,6 +182,10 @@ li.nav-item.dropdown.show {
   li.nav-item.dropdown.show {
     right: 0;
   }
+}
+
+a#navbarDropdown {
+  margin-left: 30px;
 }
 
 .wrapper {

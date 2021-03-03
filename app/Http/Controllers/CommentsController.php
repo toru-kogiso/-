@@ -25,4 +25,18 @@ class CommentsController extends Controller
         
         return redirect()->route('post.show', [$form['post_id']])->with('commentstatus','コメントを投稿しました');
     }
+    
+    public function delete(Request $request)
+    {
+        
+        $comments = Comment::find($request->id);
+        if ($comments != null) {
+        $comments->delete();
+        }
+        
+        $comment = Comment::find($request->post_id);
+        $form = $request->all();
+        
+        return redirect()->route('post.show', ['post_id' => $comment]);
+    }
 }

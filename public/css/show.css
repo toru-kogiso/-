@@ -61,6 +61,11 @@ button:hover {
   background: #ffffff;
 }
 
+.btngl {
+  border-bottom: 1px groove;
+  margin-bottom: 10px;
+}
+
 .btn1 {
   margin: 10px;
 }

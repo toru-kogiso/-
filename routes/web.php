@@ -48,7 +48,7 @@ Route::post('post/create', 'PostController@create');
 Route::get('post/edit', 'PostController@edit');
 Route::post('post/edit', 'PostController@update');
 Route::get('post/delete', 'PostController@delete');
-Route::resource('post', 'PostController', ['only' => ['post_index' ,'show']]);
+Route::get('post/{post}', 'PostController@show')->name('post.show');
 
 //マイページ
 Route::get('user', 'UserController@user_index')->name('mypage');
@@ -72,3 +72,4 @@ Route::post('/post/{post}/likes/{like}', 'LikesController@destroy');
 
 //コメント
 Route::resource('comment', 'CommentsController', ['only' => ['store']]);
+Route::get('comment/delete', 'CommentsController@delete');
