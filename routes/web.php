@@ -71,5 +71,5 @@ Route::post('/post/{post}/likes', 'LikesController@store');
 Route::post('/post/{post}/likes/{like}', 'LikesController@destroy');
 
 //コメント
-Route::resource('comment', 'CommentsController', ['only' => ['store']]);
-Route::get('comment/delete', 'CommentsController@delete');
+Route::post('comment', 'CommentsController@store');
+Route::get('comment', 'CommentsController@delete');

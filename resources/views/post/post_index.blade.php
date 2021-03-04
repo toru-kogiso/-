@@ -48,7 +48,7 @@
                                     @endguest
                                 </a>
                             </p>
-                            <p class="likes">いいね{{ $post->likes_count }}</p>
+                            <p class="likes">いいね{{ $post->likes_count }}/コメント{{$post->comments()->count()}}</p>
                             <p class="btn-group">{{-- 自分の投稿だったら編集・削除できる --}}
                                 @if (Auth::check())
                                     @if( ( $post->user_id ) === ( Auth::user()->id ) ) 

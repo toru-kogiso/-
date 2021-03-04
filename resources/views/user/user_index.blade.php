@@ -78,7 +78,7 @@
                             <hr>
                             <p class="card-text">{!! nl2br(e($post->body)) !!} </p>
                             <p class="card-date">{{ $post->created_at->format('Y年m月d日') }}</p>
-                            <p class="likes">いいね{{ $post->likes_count }}</p>
+                            <p class="likes">いいね{{ $post->likes_count }}/コメント{{$post->comments()->count()}}</p>
                             <p class="btn-group">{{-- 自分の投稿だったら編集・削除できる --}}
                                 @if (Auth::check())
                                     @if( ( $post->user_id ) === ( Auth::user()->id ) ) 

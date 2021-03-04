@@ -79,7 +79,7 @@ body {
 
 #Right-navbar {
   position: absolute;
-  top: 0;
+  top: 10px;
   right: 10px;
   @include media-query($ipad-width){
     right: 300px;

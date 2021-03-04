@@ -118,7 +118,7 @@ body {
 
 #Right-navbar {
   position: absolute;
-  top: 0;
+  top: 10px;
   right: 10px;
   font-size: 1.4em;
   letter-spacing: 0.05em;

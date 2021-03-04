@@ -93,9 +93,7 @@
                         @endif
                 </div>
                 <div class="mt-4">
-                 <button type="submit" class="btn btn-primary">
-                 コメントする
-                 </button>
+                    <button type="submit" class="btn btn-primary">コメントする</button>
                 </div>
             </form>
         </div>
