@@ -29,13 +29,13 @@ class CommentsController extends Controller
     
     public function delete(Request $request)
     {
-        $id = Comment::find($request->post_id);
+        $post_id = $request->post_id;
         
         $comments = Comment::find($request->id);
         if ($comments != null) {
         $comments->delete();
         }
         
-        return redirect()->route('post.show', ['id' => $id]);
+        return redirect(route('post.show', ['id' => $post_id]));
     }
 }

@@ -48,7 +48,7 @@ Route::post('post/create', 'PostController@create');
 Route::get('post/edit', 'PostController@edit');
 Route::post('post/edit', 'PostController@update');
 Route::get('post/delete', 'PostController@delete');
-Route::get('post/{post}', 'PostController@show')->name('post.show');
+Route::get('post/{id}', 'PostController@show')->name('post.show');
 
 //マイページ
 Route::get('user', 'UserController@user_index')->name('mypage');

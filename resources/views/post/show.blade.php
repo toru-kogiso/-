@@ -56,7 +56,7 @@
             @forelse($post->comments as $comment)
                 <div class="comment col-md-10 border-top">
                     <time class="text-secondary">
-                        {{ $comment->user_name }} / 
+                        <a href="{{ action('UserController@show', $comment->user_id) }}" class="name">{{ $comment->user->user_name }}</a> / 
                         {{ $comment->created_at->format('Y年m月d日 H:i') }}
                     </time>
                     <p class="mt-2">
@@ -67,7 +67,7 @@
                     {{-- 自分のコメントだったら削除できる --}}
                     @if (Auth::check())
                         @if( ( $comment->user_id ) === ( Auth::user()->id ) ) 
-                            <a href="{{ action('CommentsController@delete', ['id' => $comment->id]) }}" class="btn btn-danger">削除</a>
+                            <a href="{{ action('CommentsController@delete', ['id' => $comment->id, 'post_id' => $post->id]) }}" class="btn btn-danger">削除</a>
                         @endif
                     @endif
                 </div>

@@ -13,6 +13,10 @@
                     <div class="card-header">ユーザー登録情報</div>
                     <div class="card-body">
                         <div class="form-group item">
+                            <label for="name">アカウントID</label>
+                            <p>{{ $user->name }}</p>
+                        </div>
+                        <div class="form-group item">
                             <label for="name">ユーザー名</label>
                             <p>{{ $user->user_name }}</p>
                             @if (Auth::check())

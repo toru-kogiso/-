@@ -15,7 +15,7 @@
                             @endforeach    
                         </ul>
                     @endif
-                    
+                    <h2>{{$id}}</h2>
                     <div class="form-group row">
                         <label class="col-md-6">メールアドレス</label>
                         <div class="col-md-9">
