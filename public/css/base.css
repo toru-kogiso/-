@@ -124,12 +124,6 @@ body {
   letter-spacing: 0.05em;
 }
 
-@media screen and (min-width: 768px) {
-  #Right-navbar {
-    right: 300px;
-  }
-}
-
 .dropdown-menu.rightnav {
   position: absolute;
   top: 90%;

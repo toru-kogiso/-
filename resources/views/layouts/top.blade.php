@@ -27,7 +27,7 @@
                 @include('navbar')
             </header>
             
-            <main class="wrapper b-3">
+            <main class="wrapper mb-3">
                 @yield('content')
             </main>
             
