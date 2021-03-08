@@ -49,6 +49,13 @@ input[type=submit] {
   vertical-align: top;
 }
 
+@media screen and (min-width: 768px) {
+  .new {
+    margin-top: 20px;
+    margin-left: 251px;
+  }
+}
+
 .content {
   width: 100%;
   flex-wrap: wrap;

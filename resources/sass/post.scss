@@ -20,7 +20,7 @@ $ipad-width: 768px; //iPad以上の時
 .form-group {
     margin: 20px 0 0 0;
 }    
-
+// 検索
 input[type=search] {
 	-webkit-appearance: none;
 	display: inline-block;
@@ -50,6 +50,13 @@ input[type=submit] {
 	vertical-align: top;
 }
 
+// 新規作成
+.new {
+  @include media-query($ipad-width){
+    margin-top: 20px;
+    margin-left: 251px;
+  }
+}
 .content {
   width: 100%;
   flex-wrap: wrap; 
@@ -77,8 +84,6 @@ input[type=submit] {
 
 .card-img {
   position: relative;
-  //width: 100%;
-  //height: 300px;
   overflow: hidden;
   padding-top: 65%;
   img {
@@ -89,9 +94,6 @@ input[type=submit] {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    //min-width: 100%;
-    //min-height: 100%;
-    //width: auto;
   }
 }
 

@@ -18,7 +18,7 @@
                 </form>
             </div>
             <div class="col-md-4">
-                <a href="{{ action('PostController@add') }}" role="button" class="btn btn-dark order1">新規作成</a>
+                <a href="{{ action('PostController@add') }}" role="button" class="btn btn-dark new">新規作成</a>
             </div>
         </div>
         
